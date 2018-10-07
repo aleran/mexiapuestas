@@ -33,7 +33,7 @@
 		//Set who the message is to be sent to
 		$mail->addAddress("ale.ran92@gmail.com", 'Alejandro Rangel');
 		//Set the subject line
-		$mail->Subject = 'Jugada de de monto alto';
+		$mail->Subject = 'Jugada de de monto alto '.$ticket.'';
 		//Read an HTML message body from an external file, convert referenced images to embedded,
 		$mail->Body    = '<span style="font-size: 17px;">Se ha realizado una apuesa de monto: <b>'.$_POST["monto"].'</b> con ganancia de: <b>'.$_POST["premio"].'</b>. Codigo de ticket: <b>'.$ticket.'</b> </span>';
 		$mail->AltBody = 'Alerta de jugada';
