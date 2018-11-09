@@ -32,18 +32,14 @@
 		$mail->addReplyTo('cuentas@mexiapuestas.com', 'Mexiapuestas');
 		//Set who the message is to be sent to
 		$mail->addAddress("ale.ran92@gmail.com", 'Alejandro Rangel');
+		$mail->addCC('alejandrocendales@hotmail.com');
 		//Set the subject line
 		$mail->Subject = 'Jugada de de monto alto '.$ticket.'';
 		//Read an HTML message body from an external file, convert referenced images to embedded,
 		$mail->Body    = '<span style="font-size: 17px;">Se ha realizado una apuesa de monto: <b>'.$_POST["monto"].'</b> con ganancia de: <b>'.$_POST["premio"].'</b>. Codigo de ticket: <b>'.$ticket.'</b> </span>';
 		$mail->AltBody = 'Alerta de jugada';
 		$mail->CharSet = 'UTF-8';
-
 		//Attach an image file
 		//send the message, check for errors
-		if (!$mail->send()) {
-		  
-		} else {
-		   
-		}
+		$mail->send();
 ?>
