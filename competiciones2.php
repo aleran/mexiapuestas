@@ -1,5 +1,6 @@
 <?php
-    session_start();  
+    session_start();
+    include("conexion/conexion.php");
     
 ?>
 <!DOCTYPE html>
@@ -57,7 +58,7 @@
         
         <!-- menu -->
         <?php
-            include("conexion/conexion.php");
+            
             
             if(isset($_SESSION["tipo"])) {
 
@@ -108,6 +109,7 @@
                     $sql_np2="SELECT count(id) as partidos FROM partidos WHERE fecha='".date("Y-m-d")."' AND inicio=0";
                     $rs_np2=mysqli_query($mysqli,$sql_np2) or die(mysqli_error());
                     $num_np2=mysqli_fetch_array($rs_np2);
+
                     
             ?>
              <center>
@@ -139,15 +141,25 @@
                                 echo '<tbody>';
 
                         $id_dep=$row["id"];
+                        if ($_SESSION["usuario"]!="999999999") {
+
                         $sql2="SELECT * FROM competiciones WHERE id_deporte=$id_dep AND activa=1 ORDER BY top DESC, id_competicion";
                         $rs2=mysqli_query($mysqli, $sql2) or die (mysqli_error());
-                            
+                        
+                        }
+
                         while($row2=mysqli_fetch_array($rs2)) {
                             $sql_np="SELECT id FROM partidos WHERE id_competicion='".$row2["id_competicion"]."' AND fecha >='".date("Y-m-d")."' AND inicio=0";
                             $rs_np=mysqli_query($mysqli,$sql_np) or die(mysqli_error());
                             $num_np=mysqli_num_rows($rs_np);
                             echo '<tr><td>';
                             echo '<input type="checkbox" name="competicion[]" value="'.$row2["id_competicion"].'"> ';
+
+                            if ($_SESSION["usuario"]=="999999999") {
+
+                                $num_np=0;
+                            }
+
                             if ($row2["top"]==1) {
                                  echo "<span class='top'><b>".$row2["competicion"]." (".$num_np.")</b><span>";
                             }

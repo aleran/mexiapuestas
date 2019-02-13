@@ -13,7 +13,7 @@
     </style>';
     echo '<div class="col-lg-6 col-lg-offset-5">';
     echo '<div id="ticket2">';
-    echo "www.mexiapuestas.com\$intro$";
+    echo "www.mexiapuestas.net\$intro$";
     echo "Agencia: ".$row_agen["agencia"]."\$intro$";
     echo "Apuesta: ".$row_ticket["tipo"]."\$intro$";
     list($a,$m,$d)= explode("-",$row_ticket["fecha"]);
@@ -285,7 +285,7 @@
                             echo "- Sin ticket no se cobra el premio.\$intro$";
                             echo "- En caso de error de LINEA, hora programada, apuestas fuera de tiempo o comenzando el evento, estas serán CANCELADAS y el monto apostado SERA devuelto en consecuencia.\$intro$";
                             echo "Conozco y acepto las reglas.\$intro$";
-                            echo "visita www.mexiapuestas.com\$intro$";
+                            echo "visita www.mexiapuestas.net\$intro$";
     echo "</div>";
     echo "</div>";
 

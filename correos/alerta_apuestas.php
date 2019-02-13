@@ -12,24 +12,24 @@
 		//Ask for HTML-friendly debug output
 		$mail->Debugoutput = 'html';
 		//Set the hostname of the mail server
-		$mail->Host = 'mail.mexiapuestas.com';
+		$mail->Host = 'smtp.hostinger.co';
 		// use
 		// $mail->Host = gethostbyname('smtp.gmail.com');
 		// if your network does not support SMTP over IPv6
 		//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-		$mail->Port = 465;
+		$mail->Port = 587;
 		//Set the encryption system to use - ssl (deprecated) or tls
-		$mail->SMTPSecure = 'ssl';
+		$mail->SMTPSecure = 'tls';
 		//Whether to use SMTP authentication
 		$mail->SMTPAuth = true;
 		//Username to use for SMTP authentication - use full email address for gmail
-		$mail->Username = "cuentas@mexiapuestas.com";
+		$mail->Username = "cuentas@mexiapuestas.net";
 		//Password to use for SMTP authentication
 		$mail->Password = "cuentas123#mexi";
 		//Set who the message is to be sent from
-		$mail->setFrom('cuentas@mexiapuestas.com', 'Mexiapuestas');
+		$mail->setFrom('cuentas@mexiapuestas.net', 'Mexiapuestas');
 		//Set an alternative reply-to address
-		$mail->addReplyTo('cuentas@mexiapuestas.com', 'Mexiapuestas');
+		$mail->addReplyTo('cuentas@mexiapuestas.net', 'Mexiapuestas');
 		//Set who the message is to be sent to
 		$mail->addAddress("ale.ran92@gmail.com", 'Alejandro Rangel');
 		$mail->addCC('alejandrocendales@hotmail.com');

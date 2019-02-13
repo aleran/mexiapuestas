@@ -1,0 +1,1 @@
+mysqldump -u u146230243_mexia -Mexi123#$ -hlocalhost u146230243_mexia  | gzip >  /usr/bin/php /home/u146230243//public_html/respaldos_bd/mexiapuestas_db.sql.gz

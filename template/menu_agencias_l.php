@@ -2,16 +2,16 @@
 		<span class="mif-menu mif-3x boton visible-xs"></span>
 		<nav>
 			<ul id="menu_principal">
-				<li><a href="https://www.mexiapuestas.com/bienvenido.php"><span class="mif-home mif-3x principales"></span>A. DEPORTIVAS</a></li>
+				<li><a href="https://www.mexiapuestas.net/bienvenido.php"><span class="mif-home mif-3x principales"></span>A. DEPORTIVAS</a></li>
 				<?php if ($_SESSION["tipo"]=="root") {	?>
 					<li><a href="#" data-toggle="modal" data-target="#modalRegistro"><span class="mif-user-plus mif-3x principales"></span>CREAR USUARIO</a></li>
 
-					<li><a href="https://www.mexiapuestas.com/list_sorteos.php" ><span class="mif-dice mif-3x principales"></span>EVAL SORTEOS</a></li>
+					<li><a href="https://www.mexiapuestas.net/list_sorteos.php" ><span class="mif-dice mif-3x principales"></span>EVAL SORTEOS</a></li>
 
-					<li><a href="https://www.mexiapuestas.com/chances_dia.php"  title="Estados Financieros"><span class="mif-download2 mif-3x principales"></span>DESCARGAR HOY</a></li>
+					<li><a href="https://www.mexiapuestas.net/chances_dia.php"  title="Estados Financieros"><span class="mif-download2 mif-3x principales"></span>DESCARGAR HOY</a></li>
 				<?php } ?>
 
-				<li><a href="https://www.mexiapuestas.com/bienvenido_loteria.php"><span class="mif-coins mif-3x principales"></span>CHANCE</a></li>
+				<li><a href="https://www.mexiapuestas.net/bienvenido_loteria.php"><span class="mif-coins mif-3x principales"></span>CHANCE</a></li>
 
 
 				<li>
@@ -24,12 +24,12 @@
 					<input type="checkbox" id="drop-2">
 
 					<ul>
-						<li><a href="https://www.mexiapuestas.com/consultas_loteria/tickets_fecha_l.php" title="Muestra los tickets que están en juego"><span class="mif-checkmark mif-2x"></span>&nbsp;Activos</a></li>
+						<li><a href="https://www.mexiapuestas.net/consultas_loteria/tickets_fecha_l.php" title="Muestra los tickets que están en juego"><span class="mif-checkmark mif-2x"></span>&nbsp;Activos</a></li>
 
-						<li><a href="https://www.mexiapuestas.com/consultas_loteria/tickets_fecha_a_l.php" title="Muestra los tickets que están en juego"><span class="mif-checkmark mif-2x"></span>&nbsp;Anulados</a></li>
+						<li><a href="https://www.mexiapuestas.net/consultas_loteria/tickets_fecha_a_l.php" title="Muestra los tickets que están en juego"><span class="mif-checkmark mif-2x"></span>&nbsp;Anulados</a></li>
 
-						<li><a href="https://www.mexiapuestas.com/consultas_loteria/tickets_fecha_p_l.php" title="Tickets perdedores"><span class="mif-event-busy mif-2x"></span>&nbsp;Perdedores</a></li>
-						<li><a href="https://www.mexiapuestas.com/consultas_loteria/tickets_fecha_g_l.php" title="Tickets Ganadores"><span class="mif-medal mif-2x"></span>&nbsp;Ganadores</a></li>
+						<li><a href="https://www.mexiapuestas.net/consultas_loteria/tickets_fecha_p_l.php" title="Tickets perdedores"><span class="mif-event-busy mif-2x"></span>&nbsp;Perdedores</a></li>
+						<li><a href="https://www.mexiapuestas.net/consultas_loteria/tickets_fecha_g_l.php" title="Tickets Ganadores"><span class="mif-medal mif-2x"></span>&nbsp;Ganadores</a></li>
 						<li><a href="" title="Buscar ticket introduciendo el serial" data-toggle="modal" data-target="#modalT"><span class="mif-search mif-2x"></span>&nbsp;Buscar</a></li>
 					</ul>
 					
@@ -37,10 +37,10 @@
 
 				<?php if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="admin" ) { ?>
 					
-					<li><a href="https://www.mexiapuestas.com/saldos_loteria.php"  title="Estados Financieros"><span class="mif-dollars mif-3x principales"></span>CUENTAS</a></li>
+					<li><a href="https://www.mexiapuestas.net/saldos_loteria.php"  title="Estados Financieros"><span class="mif-dollars mif-3x principales"></span>CUENTAS</a></li>
 
 
-					<li><a href="https://www.mexiapuestas.com/cambiar_clave.php" title="Cambio de Clave"><span class="mif-key mif-3x principales"></span>CAMBIAR CLAVE</a></li>
+					<li><a href="https://www.mexiapuestas.net/cambiar_clave.php" title="Cambio de Clave"><span class="mif-key mif-3x principales"></span>CAMBIAR CLAVE</a></li>
 				<?php } ?>
 
 				<!-- <li><a href="" title="Calculadora Parley"><span class="mif-calculator2 mif-3x principales"></span>CALCULADORA</a></li> -->

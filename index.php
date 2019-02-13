@@ -1,7 +1,7 @@
 <!--
 Autores: Guillermo Amaya & Alejandro Rangel
 MEXIAPUESTAS- Apuestas Deportivas en Línea - Sólo para mayores de 18 años.
-www.mexiapuestas.com
+www.mexiapuestas.net
 Colombia, 2018
 -->
 <!DOCTYPE html>

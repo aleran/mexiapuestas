@@ -15,7 +15,7 @@ if(isset($_POST['enviar'])){
 	else if($email == ''){
 		echo "Debe ingresar su email";
 }else{
-	$para = "info@mexiapuestas.com";//Email al que se enviará
+	$para = "info@mexiapuestas.net";//Email al que se enviará
 	$asunto = "Atencion al Cliente";//Puedes cambiar el asunto del mensaje desde aqui
 	//Este sería el cuerpo del mensaje
 	$mensaje = "
@@ -40,7 +40,7 @@ if(isset($_POST['enviar'])){
 ";	
 	
 //Cabeceras del correo
-    $headers = "From: $nombre <mail@mexiapuestas.com>\r\n"; //Quien envia?
+    $headers = "From: $nombre <mail@mexiapuestas.net>\r\n"; //Quien envia?
     $headers .= "X-Mailer: PHP5\n";
     $headers .= 'MIME-Version: 1.0' . "\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; //
@@ -49,7 +49,7 @@ if(isset($_POST['enviar'])){
 	if(mail($para, $asunto, $mensaje, $headers)){
 		echo "Su mensaje se ha enviado correctamente";
 		echo "<br />";
-		echo '<a href="http://www.mexiapuestas.com">Volver</a>';
+		echo '<a href="http://www.mexiapuestas.net">Volver</a>';
 	}else{
 		echo "Hubo un error en el envío inténtelo más tarde";
 	}

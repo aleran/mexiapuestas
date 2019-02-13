@@ -1,6 +1,6 @@
 <?php
 
-    $mysqli = new MySQLi("localhost","root","102236","mexi_a");
+    $mysqli = new MySQLi("localhost","u146230243_mexia","Mexi123#$","u146230243_mexia");
 
     if (!$mysqli) die ("Error al conectar con el servidor -> ".mysqli_error());
     mysqli_query ($mysqli,"SET NAMES 'utf8'");
@@ -12,5 +12,5 @@
     else {
         date_default_timezone_set('America/Mexico_City');
         
-    } 
+    }
 ?>

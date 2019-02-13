@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="container">
 		<div class="logo">
-			<a href="https://www.mexiapuestas.com"><img src="images/logo.png" height="120" width="160"></a>
+			<a href="https://www.mexiapuestas.net"><img src="images/logo.png" height="120" width="160"></a>
 		</div>	
 		<div class="top-menu">
 			<span class="menu"></span>

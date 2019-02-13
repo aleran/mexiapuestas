@@ -178,11 +178,11 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/validacion_registro.js"></script>
-	<script>
+	<!--<script>
 	 $(document).ready(function(){javascript:void(0)
 		$("#myModal").modal("show");
 	  });
-	</script>
+	</script>-->
 
 </body>
 </html>

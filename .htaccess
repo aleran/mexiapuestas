@@ -1,7 +1,7 @@
 RewriteEngine on
 RewriteBase /
 RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.mexiapuestas.com/$1 [R,L]
+RewriteRule ^(.*)$ https://www.mexiapuestas.net/$1 [R,L]
 deny from 190.127.232.232
 deny from 191.66.217.65
 deny from 191.74.118.56

@@ -57,7 +57,7 @@ $compe_select=array();
     </style>';
     echo '<div class="col-lg-6 col-lg-offset-5">';
     echo '<div id="ticket">';
-    echo "www.mexiapuestas.com<br>";
+    echo "www.mexiapuestas.net<br>";
     echo "Agencia: ".$row_agen["agencia"]."<br>";
     echo "Apuesta: Loteria<br>";
     list($a,$m,$d)= explode("-",$row_ticket["fecha"]);
@@ -118,7 +118,7 @@ $compe_select=array();
     echo "- Sin ticket no se cobra el premio.<br>";
     echo "- En caso de error de línea, hora programada, apuestas fuera de tiempo o comenzando el evento, estas serán CANCELADAS y el monto apostado será devuelto en consecuencia.<br>";
     echo "Conozco y acepto las reglas.<br>";
-    echo "visita www.mexiapuestas.com<br>";
+    echo "visita www.mexiapuestas.net<br>";
 
 
        
