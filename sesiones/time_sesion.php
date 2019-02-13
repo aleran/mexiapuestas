@@ -19,10 +19,10 @@ session_start();
           echo "<script>alert('Su session a caducado por inactividad');window.location='index.php';</script>";
           //header("Location: login.php"); //envío al usuario a la pag. de autenticación
           //sino, actualizo la fecha de la sesión
-              }
+        }
         else {
           $_SESSION["ultimoAcceso"] = $ahora;
-              }
+        }
       }
           
     }

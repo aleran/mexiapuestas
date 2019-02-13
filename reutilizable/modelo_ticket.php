@@ -92,7 +92,7 @@ $compe_select=array();
             $row_resul=mysqli_fetch_array($rs_resul);
         }
 
-        if ($_SESSION["pais"]==3 || $_SESSION["pais"]==3) {
+        if ($_SESSION["pais"]==2 || $_SESSION["pais"]==2) {
             list($a2,$m2,$d2)= explode("-",$row["fecha_v"]);
         }
         else {
@@ -107,7 +107,7 @@ $compe_select=array();
         if ($row["logro"]=="gj1") {
             echo $row_eq1["equipo"]."-> <b>Ganar:</b> ".$row["valor_logro"]." vs ".$row_eq2["equipo"]."<br>";
                                     
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
 
             }
@@ -132,7 +132,7 @@ $compe_select=array();
 
         if ($row["logro"]=="gj2") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Ganar:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -158,7 +158,7 @@ $compe_select=array();
 
         if ($row["logro"]=="empate") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Empate:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -182,7 +182,7 @@ $compe_select=array();
 
         if ($row["logro"]=="empatept") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Empate 1T:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -205,7 +205,7 @@ $compe_select=array();
 
         if ($row["logro"]=="alta") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Alta</b> ( ".$row["val_alta"]." ): ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -228,7 +228,7 @@ $compe_select=array();
         if ($row["logro"]=="baja") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Baja</b> ( ".$row["val_alta"]." ): ".$row["valor_logro"]."<br>";
                                     
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -250,7 +250,7 @@ $compe_select=array();
 
         if ($row["logro"]=="runline1") {
             echo $row_eq1["equipo"]."-> <b>Runline</b> (".$row["v_runline1"]."): ".$row["valor_logro"]." vs ".$row_eq2["equipo"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -272,7 +272,7 @@ $compe_select=array();
 
         if ($row["logro"]=="runline2") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Runline</b> (".$row["v_runline2"]."): ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora3: ".$row["hora_v"]."<br>";
             }
             else {
@@ -295,7 +295,7 @@ $compe_select=array();
 
         if ($row["logro"]=="gpt1") {
             echo $row_eq1["equipo"]."-> <b>Ganar 1T:</b> ".$row["valor_logro"]." vs ".$row_eq2["equipo"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora3: ".$row["hora_v"]."<br>";
             }
             else {
@@ -317,7 +317,7 @@ $compe_select=array();
 
         if ($row["logro"]=="gpt2") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Ganar 1T:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora3: ".$row["hora_v"]."<br>";
             }
             else {
@@ -339,7 +339,7 @@ $compe_select=array();
 
         if ($row["logro"]=="gst1") {
             echo $row_eq1["equipo"]."-> <b>Ganar 2T:</b> ".$row["valor_logro"]." vs ".$row_eq2["equipo"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -361,7 +361,7 @@ $compe_select=array();
 
         if ($row["logro"]=="gst2") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Ganar 2T</b>: ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -385,7 +385,7 @@ $compe_select=array();
 
         if ($row["logro"]=="g5to1") {
             echo $row_eq1["equipo"]."-> <b>Ganar 5to I:</b> ".$row["valor_logro"]." vs ".$row_eq2["equipo"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -407,7 +407,7 @@ $compe_select=array();
 
         if ($row["logro"]=="g5to2") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>Ganar 5to I:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -429,7 +429,7 @@ $compe_select=array();
 
         if ($row["logro"]=="gg") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>GG:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -452,7 +452,7 @@ $compe_select=array();
 
         if ($row["logro"]=="ng") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>NG:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -474,7 +474,7 @@ $compe_select=array();
 
         if ($row["logro"]=="dc1x") {
             echo $row_eq1["equipo"]."-> <b>DC1x:</b> ".$row["valor_logro"]." vs ".$row_eq2["equipo"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {
@@ -495,7 +495,7 @@ $compe_select=array();
 
         if ($row["logro"]=="dc2x") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>DC2x:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
 
@@ -517,7 +517,7 @@ $compe_select=array();
 
         if ($row["logro"]=="dc12") {
             echo $row_eq1["equipo"]." vs ".$row_eq2["equipo"]."-> <b>DC12:</b> ".$row["valor_logro"]."<br>";
-            if ($_SESSION["pais"]==3) {
+            if ($_SESSION["pais"]==2) {
                 echo "Fecha: ".$fecha2." Hora: ".$row["hora_v"]."<br>";
             }
             else {

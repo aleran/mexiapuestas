@@ -102,7 +102,10 @@
 					<?php 
 						if ($_SESSION["pais"]==1) {
 							function saber_dia($nombredia) {
-								include("conexion/conexion.php");
+								$mysqli = new MySQLi("localhost","root","102236","mexi_a");
+
+							    if (!$mysqli) die ("Error al conectar con el servidor -> ".mysqli_error());
+							    mysqli_query ($mysqli,"SET NAMES 'utf8'");
 
 							$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
 

@@ -158,7 +158,7 @@ Colombia, 2018
 					 <i class="icon1"></i>
 					 <div class="bnr-text">				 
 						 <h3>¿QUIÉNES SOMOS?</h3>
-						 <p>El Grupo de MexiApuestas reúne a profesionales de la informática dedicados al desarrollo de Sistemas de Apuestas Deportivas tipo Parlay, ubicados en Colombia y México</p>
+						 <p>El Grupo de MexiApuestas reúne a profesionales de la informática dedicados al desarrollo de Sistemas de Apuestas Deportivas tipo Parlay, ubicados en Colombia, México y Venezuela</p>
 					 </div>
 				 </div>
 				 <div class="col-md-6 banner-text-info clr2">	

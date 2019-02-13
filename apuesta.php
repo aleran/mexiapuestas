@@ -60,10 +60,15 @@
         $sql_as="UPDATE usuarios SET saldo='".$saldo_final."' WHERE cedula='".$_SESSION["usuario"]."'";
         $rs_as=mysqli_query($mysqli,$sql_as) or die(mysqli_error($mysqli));
 
-        if ($_POST["monto"] >= 50000) {
+        if ($_SESSION["pais"] !=2 ) {
 
-          include("correos/alerta_apuestas.php");
+          if ($_POST["monto"] >= 50000) {
+
+            include("correos/alerta_apuestas.php");
+          }
         }
+
+        
        
             
       }
@@ -73,9 +78,12 @@
       $sql_parlay="INSERT INTO parlay(codigo,agencia,tipo,fecha,hora,monto,premio,ganar,pagado,activo) VALUES('".$ticket."','".$_SESSION['agencia']."','".$_POST['tipo']."','".fecha()."','".hora()."','".$_POST["monto"]."','".$_POST["premio"]."','3','0','1')";
       $rs=mysqli_query($mysqli,$sql_parlay) or die(mysqli_error($mysqli));
 
-      if ($_POST["monto"] >= 50000) {
+      if ($_SESSION["pais"] !=2 ) {
 
-        include("correos/alerta_apuestas.php");
+        if ($_POST["monto"] >= 50000) {
+
+          include("correos/alerta_apuestas.php");
+        }
       }
 
     }

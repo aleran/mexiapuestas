@@ -84,10 +84,25 @@
 	                <?php
                        
 	                	if ($_SESSION["tipo"]=="root") {
-	                		$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='1' AND cedula='' AND pagado='0'";
-                            $sql_t_pagar="SELECT SUM(premio) AS t_pagar FROM parlay WHERE activo='1' AND ganar='1' AND cedula='' AND pagado='0'";
-                            $rs_t_pagar=mysqli_query($mysqli, $sql_t_pagar) or die(mysqli_error());
-                            $row_t_pagar=mysqli_fetch_array($rs_t_pagar);
+	                		if ($_SESSION['usuario']=="123456") {
+
+		                		$sql_act="SELECT p.* FROM parlay p JOIN agencias a ON p.agencia=a.id WHERE activo='1' AND ganar='1' AND cedula='' AND a.pais !=2 AND pagado='0'";
+
+	                            $sql_t_pagar="SELECT SUM(p.premio) AS t_pagar FROM parlay p JOIN agencias a ON p.agencia=a.id WHERE activo='1' AND ganar='1' AND cedula='' AND a.pais !=2 AND pagado='0'";
+	                            $rs_t_pagar=mysqli_query($mysqli, $sql_t_pagar) or die(mysqli_error());
+	                            $row_t_pagar=mysqli_fetch_array($rs_t_pagar);
+
+                        	}
+
+                        	else{
+
+                        		$sql_act="SELECT * FROM parlay  WHERE activo='1' AND ganar='1' AND cedula='' AND pagado='0'";
+
+	                            $sql_t_pagar="SELECT SUM(premio) AS t_pagar FROM parlay WHERE activo='1' AND ganar='1' AND cedula='' AND pagado='0'";
+	                            $rs_t_pagar=mysqli_query($mysqli, $sql_t_pagar) or die(mysqli_error());
+	                            $row_t_pagar=mysqli_fetch_array($rs_t_pagar);
+
+                        	}
 	                	}
 	                	else {
 	                		$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='1' AND cedula='' AND pagado='0' AND agencia='".$_SESSION["agencia"]."'";
@@ -124,7 +139,7 @@
                             echo"<td></td>";
                             echo"<td></td>";
                             echo"<td></td>";
-                            echo"<td><b>Monto a Pagar :<b></td>";
+                            echo"<td><b>Total a Pagar :<b></td>";
                             echo"<td>";
                         echo $row_t_pagar["t_pagar"];
                             echo"<td>";

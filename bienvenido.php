@@ -84,7 +84,7 @@
             		?>
 				</div>
 			</div>
-			<?php if ($_SESSION["usuario"]!='999999999') {?>
+			<?php if ($_SESSION["pais"]!='2') {?>
 			<div class="row">
 				<div class="col-sm-9 col-sm-offset-3">
 					<h2 style="color: #FB7210;">NUEVO!! JUEGA TU CHANCE</h2>
@@ -105,7 +105,11 @@
 					<?php 
 						if ($_SESSION["pais"]==1) {
 							function saber_dia($nombredia) {
-								include("conexion/conexion.php");
+								$mysqli = new MySQLi("localhost","root","102236","mexi_a");
+
+							    if (!$mysqli) die ("Error al conectar con el servidor -> ".mysqli_error());
+							    mysqli_query ($mysqli,"SET NAMES 'utf8'");
+    
 
 							$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
 

@@ -1168,7 +1168,7 @@
                       ?>
                       <div class="form-group">
                         <label for="monto" style="color: black;">Monto de Apuesta: </label>
-                        <input type="text" class="form-control" name="monto" id="monto" autocomplete="off">
+                        <input type="tel" class="form-control" name="monto" id="monto" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label for="total" style="color: black;">Su Ganancia: </label>
@@ -1312,13 +1312,13 @@
                       alert("El saldo es insuficiente para realizar la apuesta");
                     }';
                     echo 'else {';
-                       echo 'if ($("#monto").val()< 500 || $("#monto").val() > 40000) {
-                      alert("El monto a apostar debe estar entre Bs.F 500 y Bs.F 40.000");
+                       echo 'if ($("#monto").val()< 200) {
+                      alert("El monto mínimo de apuesta es de Bs.S 200");
                       }';
-                      echo 'else if($(".total").val() > 300000){
-                      $(".total").val(300000);
+                      echo 'else if($(".total").val() > 50000){
+                      $(".total").val(50000);
            
-                      if(confirm("La ganancia maxima es de Bs.F 300.000 ¿desea continuar?")){
+                      if(confirm("La ganancia maxima es de Bs.S 50.000 ¿desea continuar?")){
                       $("#apuesta").submit();
                       }
                       }';
@@ -1326,13 +1326,13 @@
                     echo '}';
                 }
                 else {
-                   echo 'if ($("#monto").val()< 500 || $("#monto").val() > 40000) {
-                      alert("El monto a apostar debe estar entre Bs.F 500 y Bs.F 40.000");
+                  echo 'if ($("#monto").val()< 200) {
+                      alert("El monto mínimo de apuesta es de Bs.S 200");
                       }';
-                      echo 'else if($(".total").val() > 300000){
-                      $(".total").val(300000);
+                      echo 'else if($(".total").val() > 50000){
+                      $(".total").val(50000);
            
-                      if(confirm("La ganancia maxima es de Bs.F 300.000 ¿desea continuar?")){
+                      if(confirm("La ganancia maxima es de Bs.S 50.000 ¿desea continuar?")){
                       $("#apuesta").submit();
                       }
                       }';

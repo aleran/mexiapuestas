@@ -29,7 +29,7 @@ Colombia, 2017
 				<form action="registro.php" name="registro" method="POST" data-toggle="validator" role="form">
 					 <div class="form-group w3layouts w3 w3l">
                         <label for="pais" class="col-sm-4 control-label">País:</label>
-                        <select  name="pais" id="pais" class="form-control">
+                        <select  name="pais" id="pais" class="form-control" required>
                             <option value="">Seleccionar</option>
                             <?php
                                 include("conexion/conexion.php"); 
@@ -44,7 +44,7 @@ Colombia, 2017
                     </div>
                     <div class="form-group w3layouts w3 w3l">
                         <label for="agencia" class="col-sm-4 control-label">Agencia:</label>
-                        <select  name="agencia" id="agencia" class="form-control">
+                        <select  name="agencia" id="agencia" class="form-control" required>
                                         
                         </select>
                     </div>

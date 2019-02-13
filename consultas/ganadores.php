@@ -101,7 +101,13 @@
 	                <?php
                        
 	                	if ($_SESSION["tipo"]=="root") {
-	                		$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='1' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+	                		if ($_SESSION['usuario']=="123456") {
+
+	                		$sql_act="SELECT p.* FROM parlay p JOIN agencias a ON p.agencia=a.id WHERE activo='1' AND ganar='1' AND a.pais !=2 AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+	                		}else{
+
+	                			$sql_act="SELECT * FROM parlay  WHERE activo='1' AND ganar='1' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+	                		}
 	                	}
 	                	else {
 	                		$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='1' AND agencia='".$_SESSION["agencia"]."'AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";

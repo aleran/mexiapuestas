@@ -113,8 +113,13 @@
                         include "../reutilizable/modelo_ticket.php";
 
                         echo "</div><br>";
+                        if ($row_ticket["ganar"]==1 && $row_ticket["pagado"]==1) {
+                            echo "<span id='ganador'>PAGADO<span>";
+
+                        }
                         if ($row_ticket["ganar"]==1) {
                             echo "<span id='ganador'>GANADOR<span>";
+
                         }
                         else if ($row_ticket["ganar"]==0) {
                             echo "<span id='perdedor'>PERDEDOR</strong><span>";

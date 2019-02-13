@@ -33,7 +33,8 @@
 				<?php } ?>
 
 				<li><a href="https://www.mexiapuestas.net/competiciones.php"><span class="mif-coins mif-3x principales"></span>APOSTAR</a></li>
-                <?php if ($_SESSION["usuario"]!='999999999') {?>
+                <?php if ($_SESSION["pais"]!='2') {?>
+
 				<li><a href="https://www.mexiapuestas.net/bienvenido_loteria.php"><span class="mif-coins mif-3x principales"></span>CHANCE</a></li>
                 <?php } ?>
 
@@ -54,8 +55,11 @@
 						<li><a href="https://www.mexiapuestas.net/consultas/por_pagar.php" title="Tickets que están pendientes por pagar al cliente"><span class="mif-money mif-2x"></span>&nbsp;Por Pagar</a></li>
 						<li><a href="https://www.mexiapuestas.net/consultas/tickets_fecha_p.php" title="Tickets perdedores"><span class="mif-event-busy mif-2x"></span>&nbsp;Perdedores</a></li>
 						<li><a href="https://www.mexiapuestas.net/consultas/tickets_fecha_g.php" title="Tickets Ganadores"><span class="mif-medal mif-2x"></span>&nbsp;Ganadores</a></li>
-						<li><a href="https://www.mexiapuestas.net/consultas/tickets_fecha_gr.php" title="Tickets Ganadores"><span class="mif-medal mif-2x"></span>&nbsp;GN. Por Recargas</a></li>
 						<li><a href="" title="Buscar ticket introduciendo el serial" data-toggle="modal" data-target="#modalT"><span class="mif-search mif-2x"></span>&nbsp;Buscar</a></li>
+						<?php if ($_SESSION["pais"]!='2') {?>
+						<li><a href="https://www.mexiapuestas.net/consultas/tickets_fecha_gr.php" title="Tickets Ganadores"><span class="mif-medal mif-2x"></span>&nbsp;GN. Por Recargas</a></li>
+						<?php }?>
+						
 					</ul>
 					
 				</li>
@@ -84,7 +88,7 @@
                         </div>
                     <div class="modal-body">
                         
-                    	<form class="form-horizontal" method="POST" action="consultas/con_codigo.php">
+                    	<form class="form-horizontal" method="POST" action="https://mexiapuestas.net/consultas/con_codigo.php">
                             <?php 
                                 if ($_SESSION["tipo"]=="root") {
                                         echo "Introduzca el codigo completo";

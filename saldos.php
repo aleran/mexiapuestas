@@ -78,11 +78,21 @@
                                     <label for="agencia" class="col-sm-4 control-label">Agencia:</label>
                                     <div class="col-sm-6">
                                         <select  name="agencia" id="agencia" class="form-control">';
-                                        $sql_agencias="SELECT * FROM agencias";
-                                                $rs_agencias=mysqli_query($mysqli,$sql_agencias) or die(mysqli_error());
-                                                while ($row_agencias=mysqli_fetch_array($rs_agencias)) {
-                                                    echo  '<option value='.$row_agencias["id"].'>'.$row_agencias["agencia"].'</option>';
-                                                }
+                                        if ($_SESSION['usuario']=="123456") {
+                                        	
+                                        	$sql_agencias="SELECT * FROM agencias WHERE pais !=2";
+
+                                        	
+
+                                        }else {
+
+                                        	$sql_agencias="SELECT * FROM agencias";
+
+                                        }
+                                            $rs_agencias=mysqli_query($mysqli,$sql_agencias) or die(mysqli_error());
+                                            while ($row_agencias=mysqli_fetch_array($rs_agencias)) {
+                                                echo  '<option value='.$row_agencias["id"].'>'.$row_agencias["agencia"].'</option>';
+                                            }
 
                                  }  echo '</select>
                                     </div>

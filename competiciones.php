@@ -85,7 +85,7 @@
 			<br>
 			<?php 
                   if (isset($_SESSION["pais"])) {
-                        if ($_SESSION["pais"] != 3) {
+                        if ($_SESSION["pais"] != 2) {
 
                             echo '<center>Tipo de Apuesta: <a href="competiciones.php" class="btn btn-primary">Combinada</a>';
                         
@@ -98,9 +98,9 @@
                     }
 
                     else {
-                        echo '<center>Tipo de Apuesta: <a href="competiciones.php?pais='.$_GET["pais"].'" class="btn btn-primary">Parlay</a>';
+                        echo '<center>Tipo de Apuesta: <a href="competiciones.php?pais='.$_GET["pais"].'" class="btn btn-primary">Combinada</a>';
 
-                        if($_GET["pais"] != 3) {
+                        if($_GET["pais"] != 2) {
                             echo '<a href="competiciones2.php?pais='.$_GET["pais"].'" class="btn btn-info">Directa</a></center>';
                         }
                     }

@@ -1174,7 +1174,7 @@
                       ?>
                       <div class="form-group">
                         <label for="monto" style="color: black;">Monto a Apostar: </label>
-                        <input type="text" class="form-control" name="monto" id="monto" autocomplete="off">
+                        <input type="tel" class="form-control" name="monto" id="monto" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label for="total" style="color: black;">Ganancia: </label>

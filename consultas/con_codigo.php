@@ -29,6 +29,8 @@
             -webkit-transform: rotate(-40deg);
             transform: rotate(-40deg);
         }
+
+        
         #perdedor{
             position: absolute;
             margin-top: -510;
@@ -115,6 +117,12 @@
                         include "../reutilizable/modelo_ticket2.php";
 
                         echo "</div><br>";
+                        if ($row_ticket["ganar"]==1) {
+                            if ($row_ticket["pagado"]==0) {
+
+                                echo '<a href="#" id="pagar" class="btn btn-success hidden-print">Pagar Ticket</a><br><br> ';
+                            }
+                        }
                         echo "<button class='btn btn-primary hidden-print' id='imprimir' type='button'>Imprimir</button>";
 
                                             ?>
@@ -129,8 +137,13 @@
                             }
 
                         } 
+                        if ($row_ticket["ganar"]==1 && $row_ticket["pagado"]==1) {
+                            echo "<span id='ganador'>PAGADO<span>";
+
+                        }
                         if ($row_ticket["ganar"]==1) {
                             echo "<span id='ganador'>GANADOR<span>";
+
                         }
                         else if ($row_ticket["ganar"]=='3') {
 
