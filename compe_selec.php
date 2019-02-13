@@ -218,7 +218,7 @@
 
                                                         }else {
 
-                                                            echo '<td> <input type="checkbox" class="chk"  name="alta[]" id="alta'.$row2["id"].'" value="'.$row2["id"].'/'.$row2["alta"].'/-120"> Alta: ( -120 ) '.$row2["alta"].'</td>';
+                                                            echo '<td> <input type="checkbox" class="chk"  name="alta[]" id="alta'.$row2["id"].'" value="'.$row2["id"].'/-120/'.$row2["v_alta"].'"> Alta: ( '.$row2["v_alta"].' ) -120</td>';
 
                                                         }
                                                     }
@@ -253,7 +253,7 @@
                                                             echo '<td> <input type="checkbox" class="chk"  name="baja[]"" id="baja'.$row2["id"].'" value="'.$row2["id"].'/'.$row2["baja"].'/'.$row2["v_alta"].'">  Baja: ( '.$row2["v_alta"].' )'.$row2["baja"].'</td>';
                                                         }else{
 
-                                                            echo '<td> <input type="checkbox" class="chk"  name="baja[]"" id="baja'.$row2["id"].'" value="'.$row2["id"].'/'.$row2["baja"].'/-120">  Baja: ( -120 )'.$row2["baja"].'</td>';
+                                                            echo '<td> <input type="checkbox" class="chk"  name="baja[]"" id="baja'.$row2["id"].'" value="'.$row2["id"].'/-120/'.$row2["v_alta"].'">  Baja: ( '.$row2["v_alta"].' ) -120</td>';
                                                         }
                                                     }
                                                     if ($row["id_deporte"] == 1 || $row["id_deporte"]== 2 || $row["id_deporte"]== 3 || $row["id_deporte"]== 5 || $row["id_deporte"]== 7) {
@@ -293,9 +293,10 @@
                                                
                                                echo '<script src="js/jquery.min.js"></script>';
                                                echo '<script>';
+                                                        echo '$(".chk").click(function(){';
                                                         if ($_SESSION["pais"] !=2) {
                                                             
-                                                            echo'$(".chk").click(function(){
+                                                            echo'
                                                             if ($("#gj1'.$row2["id"].'").prop("checked")) {
                                                                 $("#gj2'.$row2["id"].'").prop("checked", false)
 
@@ -361,8 +362,8 @@
 
                                                         }else{
 
-                                                            echo'$(".chk").click(function(){
-                                                            if ($("#gj1'.$row2["id"].'").prop("checked")) {
+                                                            
+                                                            echo 'if ($("#gj1'.$row2["id"].'").prop("checked")) {
                                                                 $("#gj2'.$row2["id"].'").prop("checked", false)
 
                                                                 $("#empate'.$row2["id"].'").prop("checked", false)

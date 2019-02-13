@@ -239,6 +239,7 @@ Colombia, 2018
 	                <center><select class="form-control" name="pais" id="pais">
 	                    <option value="3">MÉXICO</option>
 	                    <option value="1">COLOMBIA</option>
+	                    <option value="2">VENEZUELA</option>
 	                </select></center>
 	                
 	            </div>
