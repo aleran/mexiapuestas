@@ -34,12 +34,16 @@
                 window.print();
             }
         <?php }?>
+        <?php if ($_SESSION["pais"]!=2) { ?>
        <?php if ($row_ticket["tipo"]=="combinada") { ?>
             window.location="compe_selec.php?compe_select=<?php echo $compe_select;?>";
         <?php } 
         else { ?>
 
             window.location="compe_selec2.php?compe_select=<?php echo $compe_select;?>";
+        <?php }?>
+        <?php }else{?>
+            window.location="competiciones.php";
         <?php }?>
         
 

@@ -130,7 +130,7 @@
                     
                     <?php
 
-                        if ($_SESSION["tipo"]=="root" || $_SESSION["usuario"]=="111111111") {
+                        if ($_SESSION["tipo"]=="root" || $_SESSION["usuario"]=="111111111" || $_SESSION["usuario"]=="20212223") {
                              if ($row_ticket["ganar"]=='3') {
                                 echo '<a href="#" id="anular" class="btn btn-danger hidden-print">Anular Ticket</a> 
                                     <br><br>';

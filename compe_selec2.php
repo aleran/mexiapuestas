@@ -774,7 +774,7 @@
         
         
        
-        },360000);
+        },180000);
 
        var formul = document.jugadas,
         elementos = formul.elements;

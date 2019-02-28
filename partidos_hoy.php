@@ -844,7 +844,7 @@
 
             window.location="bienvenido.php";
         
-        },360000);
+        },180000);
 
        var formul = document.jugadas,
         elementos = formul.elements;
