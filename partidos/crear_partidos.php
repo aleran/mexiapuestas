@@ -225,7 +225,7 @@
 				<?php } ?>
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gj2" id="gj2" placeholder="ML local" title="ML local" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="gj2" id="gj2" placeholder="ML local" title="ML local" style="font-size: 25px;">
 					    </div>
 				  	</div>
 				</div>
@@ -235,7 +235,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="empate" id="empate" placeholder="Empate" title="Empate" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="empate" id="empate" placeholder="Empate" title="Empate" style="font-size: 25px;">
 						</div>
 					</div>
 				</div>
@@ -248,7 +248,7 @@
 				<?php } ?>
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gj1" id="gj1" placeholder="ML visitante" title="ML visitante" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="gj1" id="gj1" placeholder="ML visitante" title="ML visitante" style="font-size: 25px;">
 					    </div>
 					</div>
 				</div>
@@ -263,7 +263,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="alta" id="alta" placeholder="Alta" title="Alta" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="alta" id="alta" placeholder="Alta" title="Alta" style="font-size: 25px;">
 						</div>
 					</div>
 				</div>
@@ -281,7 +281,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="baja" id="baja" placeholder="Baja" title="Baja" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="baja" id="baja" placeholder="Baja" title="Baja" style="font-size: 25px;">
 						</div>
 					</div>
 				</div>
@@ -293,7 +293,7 @@
 						<div class="form-group">
 						    	
 						    <div class="col-sm-8">
-						      	<input type="number" required class="form-control" name="gg" id="gg" placeholder="GG" title="GG" style="font-size: 25px;">
+						      	<input type="text" required class="form-control" name="gg" id="gg" placeholder="GG" title="GG" style="font-size: 25px;">
 						    </div>
 					  	</div>
 					</div>
@@ -302,7 +302,7 @@
 						<div class="form-group">
 						    	
 						    <div class="col-sm-8">
-						      	<input type="number" required class="form-control" name="ng" id="ng" placeholder="NG" title="NG" style="font-size: 25px;">
+						      	<input type="text" required class="form-control" name="ng" id="ng" placeholder="NG" title="NG" style="font-size: 25px;">
 						    </div>
 						</div>
 					</div>
@@ -327,7 +327,7 @@
 				
 					<div class="form-group">
 						 <div class="col-sm-8">
-						    <input type="number" required class="form-control" name="runline2" id="runline2" placeholder="Runline local" title="Runline local" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="runline2" id="runline2" placeholder="Runline local" title="Runline local" style="font-size: 25px;">
 						</div>   	
 						
 					 </div>
@@ -345,7 +345,7 @@
 				<div class="col-sm-3">
 					<div class="form-group">
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="runline1" id="runline1" placeholder="Runline visitante" title="Runline visitante" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="runline1" id="runline1" placeholder="Runline visitante" title="Runline visitante" style="font-size: 25px;">
 						</div>    	
 						
 					</div>
@@ -357,7 +357,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gpt2"" id="gpt2" placeholder="1T local" title="1T local" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="gpt2"" id="gpt2" placeholder="1T local" title="1T local" style="font-size: 25px;">
 					    </div>	
 					    
 				  	</div>
@@ -365,7 +365,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gpt1" id="gpt1" placeholder="1T visitante" title="1T visitante" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="gpt1" id="gpt1" placeholder="1T visitante" title="1T visitante" style="font-size: 25px;">
 					    </div>	
 					    
 					</div>
@@ -377,7 +377,7 @@
 				<div class="col-sm-6 col-sm-offset-3">
 					<div class="form-group">						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="empatept" id="empatept" placeholder="Emp 1T" title="Emp 1T" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="empatept" id="empatept" placeholder="Emp 1T" title="Emp 1T" style="font-size: 25px;">
 						</div>
 					</div>
 				</div>
@@ -388,7 +388,7 @@
 					<div class="form-group">
 					    	
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gst1" id="gst1" placeholder="2T 1">
+					      	<input type="text" required class="form-control" name="gst1" id="gst1" placeholder="2T 1">
 					    </div>
 				  	</div>
 				</div>
@@ -397,7 +397,7 @@
 					<div class="form-group">
 					    	
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gst2" id="gst2" placeholder="2T 2">
+					      	<input type="text" required class="form-control" name="gst2" id="gst2" placeholder="2T 2">
 					    </div>
 					</div>
 				</div>
@@ -411,7 +411,7 @@
 					
 					<div class="form-group">
 					    <div class="col-sm-8">
-						    <input type="number" required class="form-control" name="dc2x" id="dc2x" placeholder="DC2X" title="DC2X" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="dc2x" id="dc2x" placeholder="DC2X" title="DC2X" style="font-size: 25px;">
 						</div>
 					       	
 						
@@ -421,7 +421,7 @@
 
 					<div class="form-group">
 					    <div class="col-sm-8">
-						    <input type="number" required class="form-control" name="dc12" id="dc12" placeholder="DC12" title="DC12" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="dc12" id="dc12" placeholder="DC12" title="DC12" style="font-size: 25px;">
 						</div>	 
 						   	
 						
@@ -432,7 +432,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="dc1x" id="dc1x" placeholder="DC1X" title="DC1X" style="font-size: 25px;">
+						    <input type="text" required class="form-control" name="dc1x" id="dc1x" placeholder="DC1X" title="DC1X" style="font-size: 25px;">
 						    
 						    
 						</div> 
@@ -446,7 +446,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="g5to2" id="g5to2" placeholder="1eraM local" title="1eraM local" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="g5to2" id="g5to2" placeholder="1eraM local" title="1eraM local" style="font-size: 25px;">
 					    </div>	
 					    
 				  	</div>
@@ -455,7 +455,7 @@
 
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="g5to1" id="g5to1" placeholder="1eraM visitante" title="1eraM visitante" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="g5to1" id="g5to1" placeholder="1eraM visitante" title="1eraM visitante" style="font-size: 25px;">
 					    </div>	
 					    
 					</div>
@@ -477,7 +477,7 @@
 				
 					<div class="form-group">
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="srl2" id="srl2" placeholder="SRL 2">
+						    <input type="text" required class="form-control" name="srl2" id="srl2" placeholder="SRL 2">
 						</div>    	
 						
 					 </div>
@@ -495,7 +495,7 @@
 				<div class="col-sm-3">
 					<div class="form-group">
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="srl1" id="srl1" placeholder="SRL 1">
+						    <input type="text" required class="form-control" name="srl1" id="srl1" placeholder="SRL 1">
 						</div>    	
 						
 					</div>
@@ -507,7 +507,7 @@
 					<div class="form-group">
 					    	
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="si" id="si" placeholder="Si" title="Si">
+					      	<input type="text" required class="form-control" name="si" id="si" placeholder="Si" title="Si">
 					    </div>
 				  	</div>
 				</div>
@@ -516,7 +516,7 @@
 					<div class="form-group">
 					    	
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="no" id="no" placeholder="No" title="No">
+					      	<input type="text" required class="form-control" name="no" id="no" placeholder="No" title="No">
 					    </div>
 					</div>
 				</div>
@@ -527,7 +527,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="ap2" id="ap2" placeholder="AP 2">
+					      	<input type="text" required class="form-control" name="ap2" id="ap2" placeholder="AP 2">
 					    </div>	
 					    
 				  	</div>
@@ -536,7 +536,7 @@
 
 					<div class="form-group">
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="ap1" id="ap1" placeholder="AP 1">
+					      	<input type="text" required class="form-control" name="ap1" id="ap1" placeholder="AP 1">
 					    </div>	
 					    
 					</div>
@@ -550,7 +550,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="bst2" id="bst2" placeholder="BST B">
+						    <input type="text" required class="form-control" name="bst2" id="bst2" placeholder="BST B">
 						</div>
 					</div>
 				</div>
@@ -567,7 +567,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="bst1" id="bst1" placeholder="BST A">
+						    <input type="text" required class="form-control" name="bst1" id="bst1" placeholder="BST A">
 						</div>    	
 						
 					</div>
@@ -580,7 +580,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="alta_5to" id="alta_5to" placeholder="1eraM A">
+						    <input type="text" required class="form-control" name="alta_5to" id="alta_5to" placeholder="1eraM A">
 						</div>
 					</div>
 				</div>
@@ -598,7 +598,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="baja_5to" id="baja_5to" placeholder="1eraM B">
+						    <input type="text" required class="form-control" name="baja_5to" id="baja_5to" placeholder="1eraM B">
 						</div>
 					</div>
 				</div>
@@ -612,7 +612,7 @@
 					<div class="form-group">
 					    	
 					    <div class="col-sm-8">
-					      	<input type="number" required class="form-control" name="gmt2" id="gmt2" placeholder="MT local" title="MT local" style="font-size: 25px;">
+					      	<input type="text" required class="form-control" name="gmt2" id="gmt2" placeholder="MT local" title="MT local" style="font-size: 25px;">
 					    </div>
 				  	</div>
 				</div>
@@ -621,7 +621,7 @@
 					<div class="form-group">
 					    	
 					    <div class="col-sm-8">
-					        <input type="number" required class="form-control" name="gmt1" id="gmt1" placeholder="MT 1" title="MT visitante" style="font-size: 25px;">
+					        <input type="text" required class="form-control" name="gmt1" id="gmt1" placeholder="MT 1" title="MT visitante" style="font-size: 25px;">
 					    </div>
 					</div>
 				</div>
@@ -634,7 +634,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="alta_mt" id="alta_mt" placeholder="A MT">
+						    <input type="text" required class="form-control" name="alta_mt" id="alta_mt" placeholder="A MT">
 						</div>
 					</div>
 				</div>
@@ -652,7 +652,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="baja_mt" id="baja_mt" placeholder="B MT">
+						    <input type="text" required class="form-control" name="baja_mt" id="baja_mt" placeholder="B MT">
 						</div>
 					</div>
 				</div>
@@ -673,7 +673,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="runline_mt2" id="runline_mt2" placeholder="RL MT2">
+						    <input type="text" required class="form-control" name="runline_mt2" id="runline_mt2" placeholder="RL MT2">
 						</div>
 					 </div>
 					
@@ -691,7 +691,7 @@
 					<div class="form-group">
 						    	
 						<div class="col-sm-8">
-						    <input type="number" required class="form-control" name="runline_mt1" id="runline_mt1" placeholder="RL MT1">
+						    <input type="text" required class="form-control" name="runline_mt1" id="runline_mt1" placeholder="RL MT1">
 						    
 						</div>
 					</div>

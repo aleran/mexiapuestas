@@ -100,7 +100,7 @@
 						
 					?>
 					<?php 
-						if ($_SESSION["pais"]==1) {
+						if ($_SESSION["pais"]==1 || $_SESSION["pais"]==3) {
 							function saber_dia($nombredia) {
 								 $mysqli = new MySQLi("localhost","u146230243_mexia","Mexi123#$","u146230243_mexia");
 
@@ -130,13 +130,13 @@
 						}
 						?>
 
-					<?php if ($_SESSION["pais"]==1) { ?>
+					<?php if ($_SESSION["pais"]==1 || $_SESSION["pais"]==3 ) { ?>
 							<br><br>
 							<p style="font-size: 18px;">Con 4 cifras gana $4.500 por cada peso apostado</p>
 							<p style="font-size: 18px;">Con 3 cifras gana $400 por cada peso apostado</p>
 							<p style="font-size: 18px;">Con 2 cifras gana $50 por cada peso apostado</p>
 							<h4><a href="https://resultadodelaloteria.com/colombia/" target="_blank">Ver Resultados</a></h4>
-					<?php } ?>
+						<?php } ?>
 
 					
 

@@ -26,7 +26,7 @@ deny from 167.0.181.11
    php_value memory_limit 256M
    php_value post_max_size 8M
    php_value session.gc_maxlifetime 1440
-   php_value session.save_path "/var/cpanel/php/sessions/ea-php56"
+   #php_value session.save_path "/var/cpanel/php/sessions/ea-php56"
    php_value upload_max_filesize 16M
    php_flag zlib.output_compression Off
 </IfModule>

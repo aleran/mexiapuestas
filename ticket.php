@@ -24,9 +24,14 @@
 <script src="js/bootstrap.min.js"></script>
 <script>
 	          
-       var ticket= $("#ticket2").html();
-        <?php if ($_SESSION["tipo"]!="normal") { ?>
-            if($(window).width() <= 768)  {
+         var ticket= $("#ticket2").html();
+       
+       var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+       
+       if(es_firefox){
+           
+           <?php if ($_SESSION["tipo"]!="normal") { ?>
+            if($(window).width() <= 970)  {
                  
                 window.location="com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$"
             }
@@ -34,14 +39,30 @@
                 window.print();
             }
         <?php }?>
-        <?php if ($_SESSION["pais"]!=2) { ?>
-       <?php if ($row_ticket["tipo"]=="combinada") { ?>
-            window.location="compe_selec.php?compe_select=<?php echo $compe_select;?>";
-        <?php } 
-        else { ?>
-
-            window.location="compe_selec2.php?compe_select=<?php echo $compe_select;?>";
+           
+       }else{
+           
+           <?php if ($_SESSION["tipo"]!="normal") { ?>
+            if(window.screen.width <= 970)  {
+                 
+                window.location="https://com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$";
+                
+            }
+            else {
+                window.print();
+            }
         <?php }?>
+           
+       }
+       
+        <?php if ($_SESSION["pais"]==1) { ?>
+           <?php if ($row_ticket["tipo"]=="combinada") { ?>
+                window.location="compe_selec.php?compe_select=<?php echo $compe_select;?>";
+            <?php } 
+            else { ?>
+
+                window.location="compe_selec2.php?compe_select=<?php echo $compe_select;?>";
+            <?php }?>
         <?php }else{?>
             window.location="competiciones.php";
         <?php }?>

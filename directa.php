@@ -99,60 +99,52 @@
                                         foreach ($gj1 as $pa => $valor) {
                                           list($p,$l) = explode("/",$valor);
 
-                                          echo '<tr>';
+                                            echo '<tr>';
+                                                        echo '<td>';
+                                                          echo "Ganar";
+                                                        echo '</td>';
+
+                                                      $sql="SELECT * FROM partidos WHERE id='$p'";
+                                            $rs=mysqli_query($mysqli, $sql) or die (mysqli_error());
+
+                                            $row=mysqli_fetch_array($rs);
+                                            $sql2="SELECT *  FROM equipos  WHERE id='".$row["equipo1"]."'";
+                                                    $rs2=mysqli_query($mysqli, $sql2) or die (mysqli_error());
+                                                    $row2=mysqli_fetch_array($rs2);
+                                                      
                                                       echo '<td>';
-                                                        echo "Ganar";
-                                                      echo '</td>';
-
-                                                    $sql="SELECT * FROM partidos WHERE id='$p'";
-                                          $rs=mysqli_query($mysqli, $sql) or die (mysqli_error());
-
-                                          $row=mysqli_fetch_array($rs);
-                                          $sql2="SELECT *  FROM equipos  WHERE id='".$row["equipo1"]."'";
-                                                  $rs2=mysqli_query($mysqli, $sql2) or die (mysqli_error());
-                                                  $row2=mysqli_fetch_array($rs2);
+                                                          echo $row2["equipo"];
+                                                        echo '</td>';
                                                     
-                                                    echo '<td>';
-                                                        echo $row2["equipo"];
-                                                      echo '</td>';
-                                                  
-                                                    echo '<td>';
-                                                        echo $l;
-                                                      echo '</td>';
-                                                  
-                                                    echo '</tr>';
+                                                      echo '<td>';
+                                                          echo $l;
+                                                        echo '</td>';
+                                                    
+                                                      echo '</tr>';
 
 
-                                                    for ($i=1; $i<=count ($l); $i++){
- 
-                              if ($l < 0) {
-                                                        $datos[] =1 +100/($l * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l/100;
-                                                      }
-                                                      
-                            }  
+                                            for ($i=1; $i<=count ($l); $i++){
+   
+                                             
+                                                  $datos[] =$l;
+                                              
+                                              
+                                                        
+                                            }  
 
-                            for ($i=1; $i<=count ($p); $i++){
- 
-                              
-                                                        $partidos[] = $p."/"."gj1"."/"."0"."/".$l;
-                                                  
-                                                      
-                            }  
+                                            for ($i=1; $i<=count ($p); $i++){
+                 
+                                              
+                                            $partidos[] = $p."/"."gj1"."/"."0"."/".$l;
+                                                                  
+                                                                      
+                                            }  
 
 
                                                     
                                         }
                                         
-                                        
-
-                                       
-
-                                        
-
-                                              }
+                                      }
 
 
                                               if (isset($_POST["gj2"])){
@@ -184,12 +176,9 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l2); $i++){
-                                                      if ($l2 < 0) {
-                                                        $datos[] =1 +100/($l2 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l2/100;
-                                                      }
+                                                
+                                                        $datos[] =$l2;
+                                                     
                               
                               
                             }
@@ -238,12 +227,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l3); $i++){
-                                                      if ($l3 < 0) {
-                                                        $datos[] =1 +100/($l3 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l3/100;
-                                                      }
+                                                    
+                                                        $datos[] =$l3;
+                                                      
+                                                     
  
                               
                             }
@@ -292,12 +279,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l30); $i++){
-                                                      if ($l30 < 0) {
-                                                        $datos[] =1 +100/($l30 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l30/100;
-                                                      }
+                                                      
+                                                      
+                                                        $datos[] =$l30;
+                                                      
  
                               
                             }
@@ -348,12 +333,9 @@
 
 
                                                     for ($i=1; $i<=count ($l4); $i++){
-                                                      if ($l4 < 0) {
-                                                        $datos[] =1 +100/($l4 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l4/100;
-                                                      }
+                                                     
+                                                        $datos[] =$l4;
+                                                      
  
                               
                             }
@@ -403,12 +385,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l5); $i++){
-                                                      if ($l5 < 0) {
-                                                        $datos[] =1 +100/($l5 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l5/100;
-                                                      }
+                                                     
+                                                      
+                                                        $datos[] =$l5;
+                                                      
  
                               
                             }
@@ -455,12 +435,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l6); $i++){
-                                                      if ($l6 < 0) {
-                                                        $datos[] =1 +100/($l6 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l6/100;
-                                                      }
+                                                     
+                                                      
+                                                        $datos[] =$l6;
+                                                      
  
                               
                             }
@@ -506,12 +484,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l7); $i++){
-                                                      if ($l7 < 0) {
-                                                        $datos[] =1 +100/($l7 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l7/100;
-                                                      }
+                                                     
+                                                      
+                                                        $datos[] =$l7;
+                                                      
  
                               
                             }
@@ -558,12 +534,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l8); $i++){
-                                                      if ($l8 < 0) {
-                                                        $datos[] =1 +100/($l8 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l8/100;
-                                                      }
+                                                      
+                                                     
+                                                        $datos[] =$l8;
+                                                      
  
                               
                             }
@@ -612,12 +586,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l9); $i++){
-                                                      if ($l9 < 0) {
-                                                        $datos[] =1 +100/($l9 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l9/100;
-                                                      }
+                                                      
+                                                      
+                                                        $datos[] =$l9;
+                                                      
  
                               
                             }
@@ -663,12 +635,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l80); $i++){
-                                                      if ($l80 < 0) {
-                                                        $datos[] =1 +100/($l80 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l80/100;
-                                                      }
+                                                     
+                                                      
+                                                        $datos[] =$l80;
+                                                      
  
                               
                             }
@@ -714,12 +684,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l90); $i++){
-                                                      if ($l90 < 0) {
-                                                        $datos[] =1 +100/($l90 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l90/100;
-                                                      }
+                                                      
+                                                      
+                                                        $datos[] =$l90;
+                                                    
  
                               
                             }
@@ -766,12 +734,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l12); $i++){
-                                                      if ($l12 < 0) {
-                                                        $datos[] =1 +100/($l12 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l12/100;
-                                                      }
+                                                     
+                                                      
+                                                        $datos[] =$l12;
+                                                      
  
                               
                             }
@@ -818,12 +784,10 @@
                                                     echo '</tr>';
 
                                                     for ($i=1; $i<=count ($l13); $i++){
-                                                      if ($l13 < 0) {
-                                                        $datos[] =1 +100/($l13 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l13/100;
-                                                      }
+                                                      
+                                                      
+                                                        $datos[] =$l13;
+                                                      
  
                               
                             }
@@ -875,12 +839,10 @@
 
 
                                                     for ($i=1; $i<=count ($l46); $i++){
-                                                      if ($l46 < 0) {
-                                                        $datos[] =1 +100/($l46 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l46/100;
-                                                      }
+                                                     
+                                                      
+                                                        $datos[] =$l46;
+                                                      
  
                               
                             }
@@ -932,12 +894,9 @@
 
 
                                                     for ($i=1; $i<=count ($l47); $i++){
-                                                      if ($l47 < 0) {
-                                                        $datos[] =1 +100/($l47 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l47/100;
-                                                      }
+                                                     
+                                                        $datos[] =$l47;
+                                                      
  
                               
                             }
@@ -985,13 +944,10 @@
 
                                                     for ($i=1; $i<=count ($l49); $i++){
  
-                              if ($l49 < 0) {
-                                                        $datos[] =1 +100/($l49 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l49/100;
-                                                      }
+                              
+                                                        $datos[] =$l49;
                                                       
+                                                    
                             }  
 
                             for ($i=1; $i<=count ($p49); $i++){
@@ -1047,13 +1003,11 @@
 
                                                     for ($i=1; $i<=count ($l50); $i++){
  
-                              if ($l50 < 0) {
-                                                        $datos[] =1 +100/($l50 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l50/100;
-                                                      }
+                              
+                                                        
+                                                        $datos[] =$l50;
                                                       
+                                                    
                             }  
 
                             for ($i=1; $i<=count ($p50); $i++){
@@ -1113,12 +1067,10 @@
 
 
                                                     for ($i=1; $i<=count ($l51); $i++){
-                                                      if ($l51 < 0) {
-                                                        $datos[] =1 +100/($l51 * -1);
-                                                      }
-                                                      else{
-                                                        $datos[] =1 +$l51/100;
-                                                      }
+                                                    
+                                                      
+                                                        $datos[] =$l51;
+                                                      
  
                               
                             }
@@ -1131,7 +1083,7 @@
                             }       
                                         }
 
-                                              } 
+                                              }
                                           
                                                 
                                           
@@ -1259,19 +1211,26 @@
           }
           if ($_SESSION["pais"]==3) {
             if ($_SESSION["tipo"]=="normal") {
-              echo 'if (parseInt($("#saldo").val()) < parseInt($("#monto").val())) {
+             echo 'if (parseInt($("#saldo").val()) < parseInt($("#monto").val())) {
                       alert("El saldo es insuficiente para realizar la apuesta");
                     }';
-              echo 'else {';
-                echo 'if ($("#monto").val()< 30 || $("#monto").val() > 10000000) {
-                    alert("El monto a apostar debe estar entre $30 y $10000000");
-                  }';
-                echo 'else  $("#apuesta").submit();';
-              echo '}';
+                    echo 'else {';
+                      echo 'if ($("#monto").val()< 30 || $("#monto").val() > 500000) {
+                      alert("El monto a apostar debe estar entre $30 a $500000");
+                      }';
+                      echo 'else if($(".total").val() > 10000000){
+                      $(".total").val(10000000);
+           
+                      if(confirm("La ganancia máxima es de 10 millones de pesos, ¿desea continuar?")){
+                      $("#apuesta").submit();
+                      }
+                      }';
+                       echo 'else  $("#apuesta").submit();';
+                    echo '}';
             }
             else {
-               echo 'if ($("#monto").val()< 30 || $("#monto").val() > 10000000) {
-                    alert("El monto a apostar debe estar entre $30 y $10000000");
+               echo 'if ($("#monto").val()< 30 || $("#monto").val() > 500000) {
+                    alert("El monto a apostar debe estar entre $30 y $500000");
                   }';
                 echo 'else  $("#apuesta").submit();';
             }

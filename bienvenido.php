@@ -103,7 +103,7 @@
 					
 						
 					<?php 
-						if ($_SESSION["pais"]==1) {
+						if ($_SESSION["pais"]==1 || $_SESSION["pais"]==3) {
 							function saber_dia($nombredia) {
 								 $mysqli = new MySQLi("localhost","u146230243_mexia","Mexi123#$","u146230243_mexia");
 
@@ -132,7 +132,7 @@
 							saber_dia(date("Y-m-d"));
 						}
 						?>
-						<?php if ($_SESSION["pais"]==1) { ?>
+						<?php if ($_SESSION["pais"]==1 || $_SESSION["pais"]==3 ) { ?>
 							<br><br>
 							<p style="font-size: 18px;">Con 4 cifras gana $4.500 por cada peso apostado</p>
 							<p style="font-size: 18px;">Con 3 cifras gana $400 por cada peso apostado</p>

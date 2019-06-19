@@ -136,7 +136,7 @@
 
                                             }
                                             else {
-                                                $sql2="SELECT * FROM partidos WHERE id_competicion=$id_comp AND inicio_v=0 AND fecha_v= '".fecha()."' ORDER BY fecha ASC";
+                                                $sql2="SELECT * FROM partidos WHERE id_competicion=$id_comp AND inicio=0 AND fecha_v= '".fecha()."' ORDER BY fecha ASC";
                                                 $rs2=mysqli_query($mysqli, $sql2) or die (mysqli_error());
                                                 $num2=mysqli_num_rows($rs2);
 
