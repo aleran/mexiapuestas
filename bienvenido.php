@@ -103,9 +103,9 @@
 					
 						
 					<?php 
-						if ($_SESSION["pais"]==1 || $_SESSION["pais"]==3) {
+						if ($_SESSION["pais"]==1) {
 							function saber_dia($nombredia) {
-								 $mysqli = new MySQLi("localhost","u146230243_mexia","Mexi123#$","u146230243_mexia");
+								  $mysqli = new MySQLi("localhost","u146230243_mexia","Mexi123#$","u146230243_mexia");
 
 							    if (!$mysqli) die ("Error al conectar con el servidor -> ".mysqli_error());
 							    mysqli_query ($mysqli,"SET NAMES 'utf8'");
@@ -130,14 +130,47 @@
 						// ejecutamos la función pasándole la fecha que queremos
 
 							saber_dia(date("Y-m-d"));
+						}else{
+
+							$sql_sorteo="SELECT n.sorteo,n.dia,n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE inicio= 0 AND n.pais=3";
+				            $rs_sorteo=mysqli_query($mysqli,$sql_sorteo) or die(mysqli_error());
+				             
+
+				            while ($row_sorteo=mysqli_fetch_array($rs_sorteo)) {
+
+				            	$sql="SELECT n.sorteo, n.dia, n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE s.id='".$row_sorteo["id"]."'";
+								$rs=mysqli_query($mysqli, $sql);
+								$row=mysqli_fetch_array($rs);
+								$num=mysqli_num_rows($rs);
+
+			 					$mod_date = strtotime($row["hora"]."- 1 hour");
+		                        $fecha_suma= date("H:i:s",$mod_date);
+
+                        
+								if (date("Y-m-d H:i:s") > $row["fecha"]." ".$fecha_suma ) {
+
+									$sql_as="UPDATE sorteos SET inicio=1 WHERE id='".$row_sorteo["id"]."'";
+									$rs_as=mysqli_query($mysqli, $sql_as);
+									
+									
+									
+								}
+		
+
+				            	echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-danger">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+				            }
+
 						}
 						?>
-						<?php if ($_SESSION["pais"]==1 || $_SESSION["pais"]==3 ) { ?>
+						<?php if ($_SESSION["pais"]==1) { ?>
 							<br><br>
 							<p style="font-size: 18px;">Con 4 cifras gana $4.500 por cada peso apostado</p>
 							<p style="font-size: 18px;">Con 3 cifras gana $400 por cada peso apostado</p>
 							<p style="font-size: 18px;">Con 2 cifras gana $50 por cada peso apostado</p>
 							<h4><a href="https://resultadodelaloteria.com/colombia/" target="_blank">Ver Resultados</a></h4>
+						<?php }else{ ?>
+							<br><br>
+							<p style="font-size: 18px;">Boleto con 2 cifras por $150 ganas $10.000</p>
 						<?php } ?>
 						
 

@@ -1,6 +1,6 @@
 <?php
 
-    $mysqli = new MySQLi("localhost","u146230243_mexia","Mexi123#$","u146230243_mexia");
+    $mysqli = new MySQLi("localhost","root","102236","mexi_a");
 
     if (!$mysqli) die ("Error al conectar con el servidor -> ".mysqli_error());
     mysqli_query ($mysqli,"SET NAMES 'utf8'");

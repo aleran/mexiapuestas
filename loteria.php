@@ -100,7 +100,7 @@
 						
 					?>
 					<h3>Sorteo: <?php echo $row["sorteo"]." (".$row["dia"].")"; ?></h3>
-					<h4>Hora del Sorteo: <?php echo $row["hora"]; ?></h4>
+					<h4>Fecha del Sorteo: <?php echo $row["fecha"]." ".$row["hora"]; ?></h4>
 					
 				</div>
 				<div class="col-sm-6 col-sm-offset-1">
@@ -132,8 +132,8 @@
 					
 				</div>
 				<div class="col-sm-4 ganancias">
-						
-							Ganancia: <br> $<span class="total"></span><br>
+							Valor del boleto: <br> $<span>150</span><br>
+							Ganancia: <br> $<span class="total">10000</span><br>
 						
 				</div>
 				<div class="row">
@@ -166,11 +166,14 @@
 	                          echo '<input type="hidden" name="saldo" id="saldo" value="'.$row_saldo["saldo"].'">';
 	                        }
 	                      ?>
-	                     
+	                     	<?php if ($_SESSION["pais"] ==1) { ?>
+
 							<br><input type="tel" name="monto" id="monto" placeholder="Monto a apostar" class="form-control">
+
+							<?php }else{ ?>
+							<br><input type="hidden" name="monto" id="monto" placeholder="Monto a apostar" class="form-control" value="150">
+							<?php } ?>
 							<input type="hidden" readonly id="total" name="total">
-						
-							
 							
 						
 					</div>
@@ -205,7 +208,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/validacion_registro.js"></script>
-	<script type="text/javascript" src="js/virtual-key.js"></script>
+	<!--<script type="text/javascript" src="js/virtual-key.js"></script>-->
 	<script>
 
 		/*$(".table_teclado").click(function(){
@@ -222,7 +225,29 @@
 
 		var resultado;
 		<?php if ($_SESSION["pais"]==1) { ?>
-			
+
+		$('.table_teclado tr td').click(function(){
+		$("#monto").val("");
+		$("#total").val("");
+		$(".total").text("");
+	        
+
+		var number = $(this).text();
+		
+		if (number == '')
+		{
+			$('#campo').val($('#campo').val().substr(0, $('#campo').val().length - 1));
+			$('#numeros').text($('#numeros').text().substr(0, $('#numeros').text().length - 1));
+		}
+		else
+		{
+			$('#campo').val($('#campo').val() + number);
+			$('#numeros').text($('#campo').val());
+
+		}
+
+	});
+
 			$("#monto").keyup(function(){
 	       
 		        //console.log(monto);
@@ -252,32 +277,42 @@
 
 		<?php } else {?>
 
-			$("#monto").keyup(function(){
-	       
-		        //console.log(monto);
-		        var monto = $("#monto").val();
-		       
-		        
+			$('.table_teclado tr td').click(function(){
+				$("#total").val("");
+				$(".total").text("");
+	        
 
-		        if ($('#campo').val().length == 2) {
+				var number = $(this).text();
+				
+				if (number == '')
+				{
+					$('#campo').val($('#campo').val().substr(0, $('#campo').val().length - 1));
+					$('#numeros').text($('#numeros').text().substr(0, $('#numeros').text().length - 1));
+				}
+				else
+				{
+					$('#campo').val($('#campo').val() + number);
+					$('#numeros').text($('#campo').val());
 
-		        	resultado = monto * 20;
-		        	
-		        }
+				}
+				 if ($('#numeros').text().length > 2) {
+				 		alert("solo se permiten 2 cifras");
+				 		$('#campo').val("");
+						$('#numeros').text("");
+			        	
+			        }
 
-		        else if($('#campo').val().length == 3){
-		        	resultado = monto * 200;
-		        	
+			    else {
+			        
+			        resultado = 10000;	
+			    }
 
-		        }
-		        else {
-		        	resultado = monto * 2000;
-		        	
-		        }
-		        $("#total").val(resultado);
-		        $(".total").text(resultado);
+			    $("#total").val(resultado);
+			    $(".total").text(resultado);
 
-      		})
+			});
+
+			
 
 		<?php } ?>
 		
@@ -296,14 +331,13 @@
 	            }
 	        <?php }else{ ?>
 
-	        	 if (monto < 10) {
-	            	alert("Monto debe ser de $10 en adelante");
-	                e.preventDefault();
-	                $("#monto").focus();
-	            }
+	        	  if ($('#numeros').text().length < 2 || $('#numeros').text().length > 2) {
+	        	  	alert("Solo se permiten 2 cifras");
+	        	  	e.preventDefault();
+	        	  }
 
 	        <?php } ?>
-
+	       	<?php if ($_SESSION["pais"]==1) { ?>
            if (nombre.length > 4){
                 alert("Debe seleccionar 4 números");
                 e.preventDefault();
@@ -318,7 +352,7 @@
 					alert("El saldo es insuficiente para realizar la apuesta");
 					e.preventDefault();
              	}
-            <?php } ?>
+            <?php } }?>
          
         }
      formul.addEventListener("submit", validar)

@@ -23,21 +23,37 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script>
-	   $( document ).ready(function(){
+	var ticket= $("#ticket2").html();
+    var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    
+     if(es_firefox){
+           
+           <?php if ($_SESSION["tipo"]!="normal") { ?>
+            if($(window).width() <= 970)  {
+                 
+                window.location="com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$"
+            }
+            else {
+                window.print();
+            }
+        <?php }?>
+           
+       }else{
+           
+           <?php if ($_SESSION["tipo"]!="normal") { ?>
+            if(window.screen.width <= 970)  {
+                 
+                window.location="https://com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$";
+                
+            }
+            else {
+                window.print();
+            }
+        <?php }?>
+           
+       }
 
-           var ticket= $("#ticket2").html();
-            <?php if ($_SESSION["tipo"]!="normal") { ?>
-                if($(window).width() <= 768)  {
-                     
-                    window.location="com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$"
-                }
-                else {
-                    window.print();
-                }
-            <?php }?>
-       
-
-            window.location="bienvenido_loteria.php";
-        });
+    window.location="bienvenido_loteria.php";
+        
     
 </script>
