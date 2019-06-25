@@ -22,7 +22,7 @@ ini_set('error_reporting', E_ALL);
       
     } 
 
-    $sql="SELECT numeros FROM loteria WHERE id_sorteo='".$_POST["sorteo"]."'";
+    $sql="SELECT id FROM loteria WHERE id_sorteo='".$_POST["sorteo"]."' AND numeros='".$_POST["numeros"]."'";
     $rs=mysqli_query($mysqli,$sql) or die(mysqli_error());
     $num=mysqli_num_rows($rs);
 

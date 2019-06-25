@@ -14,7 +14,7 @@
     echo '<div id="ticket2">';
     echo "www.mexiapuestas.net\$intro$";
     echo "Agencia: ".$row_agen["agencia"]."\$intro$";
-    echo "Apuesta: Loteria\$intro$";
+    echo "Apuesta: LOTERIA NACIONAL DE MEXICO\$intro$";
     list($a,$m,$d)= explode("-",$row_ticket["fecha"]);
     $fecha = $d."/".$m."/".$a;
     echo "Fecha: ".$fecha." ".$row_ticket["hora"]."\$intro$";

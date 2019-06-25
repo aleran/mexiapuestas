@@ -59,7 +59,7 @@ $compe_select=array();
     echo '<div id="ticket">';
     echo "www.mexiapuestas.net<br>";
     echo "Agencia: ".$row_agen["agencia"]."<br>";
-    echo "Apuesta: Loteria<br>";
+    echo "Apuesta: LOTERIA NACIONAL DE MEXICO<br>";
     list($a,$m,$d)= explode("-",$row_ticket["fecha"]);
     $fecha = $d."/".$m."/".$a;
     echo "Fecha: ".$fecha." ".$row_ticket["hora"]."<br>";
