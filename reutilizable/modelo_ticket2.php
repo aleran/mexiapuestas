@@ -10,6 +10,17 @@
         
     }
 
+    #copia{
+            position: absolute;
+            margin-top:-300px;
+            margin-left:70px;
+            z-index: 100;
+            color:#5D5D5D;
+            font-size: 40px;
+            -webkit-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+        }   
+
     </style>';
     echo '<div class="col-lg-6 col-lg-offset-5">';
     echo '<div id="ticket2">';

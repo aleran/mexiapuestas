@@ -22,11 +22,12 @@ ini_set('error_reporting', E_ALL);
       
     } 
 
-    $sql="SELECT id FROM loteria WHERE id_sorteo='".$_POST["sorteo"]."' AND numeros='".$_POST["numeros"]."' AND activo='1'";
+    $sql="SELECT fracciones FROM loteria_frac WHERE id_sorteo='".$_POST["sorteo"]."' AND numeros='".$_POST["numeros"]."'";
     $rs=mysqli_query($mysqli,$sql) or die(mysqli_error());
     $num=mysqli_num_rows($rs);
+    $row_f=mysqli_fetch_array($rs);
 
-    if ($num > 29 ) {
+    if ($row_f["fracciones"] > 29 ) {
 
       echo "<script>alert('Números: ".$_POST["numeros"]." no disponibles ya se completaron 30 fracciones');window.location='bienvenido_loteria.php'</script>";
     }
@@ -70,24 +71,57 @@ ini_set('error_reporting', E_ALL);
 
            $sql_loteria="INSERT INTO loteria(id_sorteo,codigo,agencia,cedula,fecha,hora,numeros,monto,premio,ganar,activo) VALUES('".$_POST["sorteo"]."','".$ticket."','".$_SESSION['agencia']."', '".$_SESSION['usuario']."', '".fecha()."','".hora()."','".$_POST["numeros"]."','".$_POST["monto"]."','".$_POST["total"]."','3','1')";
 
+           $rs=mysqli_query($mysqli,$sql_loteria) or die(mysqli_error($mysqli));
+
 
           $saldo_final = $saldo - $_POST["monto"];
 
           $sql_as="UPDATE usuarios SET saldo='".$saldo_final."' WHERE cedula='".$_SESSION["usuario"]."'";
           $rs_as=mysqli_query($mysqli,$sql_as) or die(mysqli_error($mysqli));
+
+          if ($num > 0) {
+
+          $total_frac=$row["fracciones"] + $_POST["fracciones"];
+
+          $sql_frac="UPDATE loteria_frac SET fracciones='".$total_frac."' WHERE id_sorteo='".$_POST["sorteo"]."'";
+          $rs_frac=mysqli_query($mysqli,$sql_frac) or die(mysqli_error($mysqli));
+          
+        }else{
+
+          $sql_frac="INSERT INTO loteria_frac(id_sorteo,numeros,fracciones) VALUES('".$_POST["sorteo"]."','".$_POST["numeros"]."','".$_POST["fracciones"]."')";
+
+          $rs_frac=mysqli_query($mysqli,$sql_frac) or die(mysqli_error($mysqli));
+
+        }
               
         }
            
       }
       else {
 
+
         $sql_loteria="INSERT INTO loteria(id_sorteo,codigo,agencia,fecha,hora,numeros,monto,premio,ganar,activo) VALUES('".$_POST["sorteo"]."','".$ticket."','".$_SESSION['agencia']."','".fecha()."','".hora()."','".$_POST["numeros"]."','".$_POST["monto"]."','".$_POST["total"]."','3','1')";
+
+        $rs=mysqli_query($mysqli,$sql_loteria) or die(mysqli_error($mysqli));
+
+        if ($num > 0) {
+
+          $total_frac=$row_f["fracciones"] + $_POST["fracciones"];
+
+          $sql_frac="UPDATE loteria_frac SET fracciones='".$total_frac."' WHERE id_sorteo='".$_POST["sorteo"]."'";
+          $rs_frac=mysqli_query($mysqli,$sql_frac) or die(mysqli_error($mysqli));
+          
+        }else{
+
+          $sql_frac="INSERT INTO loteria_frac(id_sorteo,numeros,fracciones) VALUES('".$_POST["sorteo"]."','".$_POST["numeros"]."','".$_POST["fracciones"]."')";
+
+          $rs_frac=mysqli_query($mysqli,$sql_frac) or die(mysqli_error($mysqli));
+
+        }
 
       }
 
 
-     
-      $rs=mysqli_query($mysqli,$sql_loteria) or die(mysqli_error($mysqli));
 
 
       echo "<script>window.location='ticket_loteria.php?cod_t=".$ticket."'</script>";

@@ -21,7 +21,14 @@
 	<link rel="stylesheet" type="text/css" href="css/virtual-key.css">
 	
 	<!--Fuentes-->
-	
+	<style>
+		input[type=number] { -moz-appearance:textfield; }
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+  			-webkit-appearance: none; 
+  			margin: 0; 
+		}
+	</style>
 </head>
  <!-- Fecha Sistema -->
     
@@ -103,6 +110,7 @@
 					<h4>Fecha del Sorteo: <?php echo $row["fecha"]." ".$row["hora"]; ?></h4>
 					
 				</div>
+				<form action="apuesta_loteria.php" method="POST" name="jugadas">
 				<div class="col-sm-6 col-sm-offset-1">
 					
 					
@@ -128,16 +136,19 @@
 							<td colspan="2">0</td>
 							<td><img class="btn_delete" src="images/borrar.png"></td>
 						</tr>
-					</table>
-					
+					</table><br>
+					<center><label for="frac">Fracciones:</label> <input type="number" name="fracciones" id="frac" required value="1"></center>
 				</div>
 				<div class="col-sm-4 ganancias">
-							Valor del boleto: <br> $<span>150</span><br>
+							Valor del boleto: <br> $<span class="monto">150</span><br>
 							Ganancia: <br> $<span class="total">10000</span><br>
 						
 				</div>
+
 				<div class="row">
+
 					<div class="col-sm-6 col-sm-offset-4">
+
 						   <?php 
                       if (isset($_SESSION["tipo"])) {
                         echo '<h4>Usted tiene <span id="time"></span> segundos para realizar su apuesta.</h4><br>';
@@ -160,7 +171,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-3 col-sm-offset-4">
-						<form action="apuesta_loteria.php" method="POST" name="jugadas">
+						
 							<?php 
 	                        if ($_SESSION["tipo"]=="normal") {
 	                          echo '<input type="hidden" name="saldo" id="saldo" value="'.$row_saldo["saldo"].'">';
@@ -288,17 +299,25 @@
 				{
 					$('#campo').val($('#campo').val().substr(0, $('#campo').val().length - 1));
 					$('#numeros').text($('#numeros').text().substr(0, $('#numeros').text().length - 1));
+					$("#frac").val("1");
+					$("#monto").val("150");
+					$(".monto").text("150");
 				}
 				else
 				{
 					$('#campo').val($('#campo').val() + number);
 					$('#numeros').text($('#campo').val());
+					$("#frac").val("1");
+					$("#monto").val("150");
+					$(".monto").text("150");
+				
 
 				}
 				 if ($('#numeros').text().length > 2) {
 				 		alert("solo se permiten 2 cifras");
 				 		$('#campo').val("");
 						$('#numeros').text("");
+						$("#frac").val("1");
 			        	
 			        }
 
@@ -311,6 +330,35 @@
 			    $(".total").text(resultado);
 
 			});
+
+			$("#frac").keyup(function(){
+	       
+		        //console.log(monto);
+		        var frac = $("#frac").val();
+		      	if (resultado == 0) {
+		      		resultado=10000;
+		      	}
+
+		      	
+		      	if (frac >30 || frac <1) {
+		      		alert("las fracciones deben estar entre 1 y 30")
+		      		$("#frac").val("");
+		      	}
+				resultado = resultado * frac;
+		        
+		        monto=$("#monto").val();
+		        if (monto == 0) {
+		      		monto=150;
+		      	}
+		        monto= monto * frac;
+		        
+		        $("#total").val(resultado);
+		        $(".total").text(resultado);
+
+		        $("#monto").val(monto);
+		        $(".monto").text(monto);
+
+      		})
 
 			
 
