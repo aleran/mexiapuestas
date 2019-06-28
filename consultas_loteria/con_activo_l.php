@@ -72,7 +72,7 @@
                    	<input type="hidden" id="p_f">
                     <?php
 
-                        if ($_SESSION["tipo"]=="root") {
+                        if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
 
                             if (isset($_GET["codigo"])) {
                                 $codigo=$_GET["codigo"];

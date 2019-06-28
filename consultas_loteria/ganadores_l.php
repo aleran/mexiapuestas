@@ -102,13 +102,15 @@
 	                            <th>Apostado</th>
 	                            <th>Ganancia</th>
 	                        </thead>
-	                        <tbody>s
+	                        <tbody>
 	                        	
                 	
 	                <?php
                        
 	                	if ($_SESSION["tipo"]=="root") {
 	                		$sql_act="SELECT * FROM loteria WHERE activo='1' AND (ganar='1' OR ganar='2' OR ganar='4') AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+	                	}elseif ($_SESSION["tipo"]=="chance") {
+	                		$sql_act="SELECT l.* FROM loteria l JOIN agencias a ON a.id=l.agencia WHERE l.activo='1' AND (l.ganar='1' OR l.ganar='2' OR l.ganar='4') AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (l.fecha BETWEEN '".$desde."' AND '".$hasta."')";
 	                	}
 	                	else {
 	                		$sql_act="SELECT * FROM loteria WHERE activo='1'  AND (ganar='1' OR ganar='2' OR ganar='4') AND agencia='".$_SESSION["agencia"]."'AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";

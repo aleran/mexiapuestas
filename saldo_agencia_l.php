@@ -74,7 +74,7 @@
 			<br>
 			<div class="row">
 				<?php
-                          if ($_SESSION["tipo"]=="root") {
+                          if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
 
                             $sql="SELECT agencia FROM agencias WHERE id='".$_POST["agencia"]."'";
                                 $rs=mysqli_query($mysqli,$sql);

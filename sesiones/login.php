@@ -22,7 +22,12 @@
 			$_SESSION['tipo']=$row['tipo'];
 			$_SESSION['pais']=$row['pais'];
 
-			header("location:../bienvenido.php");
+			if ($_SESSION['tipo'] !="chance") {
+				header("location:../bienvenido.php");
+			}else{
+				header("location:../bienvenido_loteria.php");
+			}
+			
 		}
 	else echo "<script>alert('Clave Invalida');window.location='../iniciar_sesion.html';</script>";
 	mysqli_close($mysqli);

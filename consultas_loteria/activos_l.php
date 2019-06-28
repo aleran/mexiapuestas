@@ -109,6 +109,16 @@
                             $rs_t_apostado=mysqli_query($mysqli, $sql_t_apostado) or die(mysqli_error());
                             $row_t_apostado=mysqli_fetch_array($rs_t_apostado);
 	                	}
+	                	elseif ($_SESSION["tipo"]=="chance") {
+	                		
+	                		$sql_act="SELECT l.* FROM loteria l JOIN agencias a ON a.id=l.agencia WHERE l.activo='1' AND l.ganar='3' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (l.fecha BETWEEN '".$desde."' AND '".$hasta."')";
+
+                            $sql_t_apostado="SELECT SUM(l.monto) AS t_apostado FROM loteria l JOIN agencias a ON a.id=l.agencia WHERE l.activo='1' AND l.ganar='3' AND (l.fecha BETWEEN '".$desde."' AND '".$hasta."')";
+                            $rs_t_apostado=mysqli_query($mysqli, $sql_t_apostado) or die(mysqli_error());
+                            $row_t_apostado=mysqli_fetch_array($rs_t_apostado);
+
+	                	}
+
 	                	else {
 	                		$sql_act="SELECT * FROM loteria WHERE activo='1' AND ganar='3' AND agencia='".$_SESSION["agencia"]."'AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
 

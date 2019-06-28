@@ -89,11 +89,27 @@
                                                 while ($row_agencias=mysqli_fetch_array($rs_agencias)) {
                                                     echo  '<option value='.$row_agencias["id"].'>'.$row_agencias["agencia"].'</option>';
                                                 }
-
-                                 }  echo '</select>
-                                    </div>
+                                        echo '</select>
+                                   	</div>
                                      
-                                </div>';
+                                	</div>';
+                                }elseif($_SESSION["tipo"]=="chance"){
+
+                                	 echo '<div class="form-group">
+                                    <label for="agencia" class="col-sm-4 control-label">Agencia:</label>
+                                    <div class="col-sm-6">
+                                        <select  name="agencia" id="agencia" class="form-control">';
+                                        $sql_agencias="SELECT * FROM agencias WHERE agencia_padre='".$_SESSION["agencia"]."'";
+                                                $rs_agencias=mysqli_query($mysqli,$sql_agencias) or die(mysqli_error());
+                                                while ($row_agencias=mysqli_fetch_array($rs_agencias)) {
+                                                    echo  '<option value='.$row_agencias["id"].'>'.$row_agencias["agencia"].'</option>';
+                                                }
+                                        echo '</select>
+                                   	</div>
+                                     
+                                	</div>';
+
+                                }  
                                               
                                   
                             ?>

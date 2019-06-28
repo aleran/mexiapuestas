@@ -2,7 +2,10 @@
 		<span class="mif-menu mif-3x boton visible-xs"></span>
 		<nav>
 			<ul id="menu_principal">
+
+				<?php if ($_SESSION["tipo"] != "chance") { ?>
 				<li><a href="https://www.mexiapuestas.net/bienvenido.php"><span class="mif-home mif-3x principales"></span>A. DEPORTIVAS</a></li>
+				<?php } ?>
 				<?php if ($_SESSION["tipo"]=="root") {	?>
 					<li><a href="#" data-toggle="modal" data-target="#modalRegistro"><span class="mif-user-plus mif-3x principales"></span>CREAR USUARIO</a></li>
 
@@ -35,12 +38,12 @@
 					
 				</li>
 
-				<?php if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="admin" ) { ?>
+				<?php if ($_SESSION["tipo"]!="normal") { ?>
 					
 					<li><a href="https://www.mexiapuestas.net/saldos_loteria.php"  title="Estados Financieros"><span class="mif-dollars mif-3x principales"></span>CUENTAS</a></li>
 
 
-					<li><a href="https://www.mexiapuestas.net/cambiar_clave.php" title="Cambio de Clave"><span class="mif-key mif-3x principales"></span>CAMBIAR CLAVE</a></li>
+					<!--<li><a href="https://www.mexiapuestas.net/cambiar_clave.php" title="Cambio de Clave"><span class="mif-key mif-3x principales"></span>CAMBIAR CLAVE</a></li>-->
 				<?php } ?>
 
 				<!-- <li><a href="" title="Calculadora Parley"><span class="mif-calculator2 mif-3x principales"></span>CALCULADORA</a></li> -->
@@ -60,7 +63,7 @@
                         
                     	<form class="form-horizontal" method="POST" action="consultas_loteria/con_codigo_l.php">
                             <?php 
-                                if ($_SESSION["tipo"]=="root") {
+                                if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
                                         echo "Introduzca el codigo completo";
                                 }
                                 else {
