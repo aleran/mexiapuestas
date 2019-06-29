@@ -332,12 +332,13 @@
 			});
 
 			$("#frac").keyup(function(){
-	       
+	       		 $("#monto").val(150);
+		        $(".monto").text(150);
 		        //console.log(monto);
 		        var frac = $("#frac").val();
-		      	if (resultado == 0) {
+		      
 		      		resultado=10000;
-		      	}
+		      	
 
 		      	
 		      	if (frac >30 || frac <1) {
@@ -352,11 +353,13 @@
 		      	}
 		        monto= monto * frac;
 		        
-		        $("#total").val(resultado);
-		        $(".total").text(resultado);
+		      
 
 		        $("#monto").val(monto);
 		        $(".monto").text(monto);
+
+		        $("#total").val(resultado);
+		        $(".total").text(resultado);
 
       		})
 
