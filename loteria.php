@@ -341,11 +341,16 @@
 		      	
 
 		      	
-		      	if (frac >30 || frac <1) {
-		      		alert("las fracciones deben estar entre 1 y 30")
-		      		$("#frac").val("");
-		      	}
-				resultado = resultado * frac;
+		      	if (frac >10 || frac <1) {
+		      		alert("las fracciones deben estar entre 1 y 10")
+		      		$("#frac").val(1);
+		      		$("#monto").val("150");
+					$(".monto").text("150");
+					$("#total").val("10000");
+			    	$(".total").text("10000");
+		      	}else{
+
+		      		resultado = resultado * frac;
 		        
 		        monto=$("#monto").val();
 		        if (monto == 0) {
@@ -360,6 +365,9 @@
 
 		        $("#total").val(resultado);
 		        $(".total").text(resultado);
+
+		      	}
+				
 
       		})
 
