@@ -27,9 +27,13 @@ ini_set('error_reporting', E_ALL);
     $num=mysqli_num_rows($rs);
     $row_f=mysqli_fetch_array($rs);
 
-    if ($row_f["fracciones"] > 29 ) {
+    
+    $frac_total=$_POST["fracciones"]+$row_f["fracciones"];
+    $frac_disp= 30 - $row_f["fracciones"];
 
-      echo "<script>alert('Números: ".$_POST["numeros"]." no disponibles ya se completaron 30 fracciones');window.location='bienvenido_loteria.php'</script>";
+    if ($frac_total > 30 ) {
+
+      echo "<script>alert('Números: ".$_POST["numeros"]." con  ".$frac_disp." Fracciones Disponibles. Por favor vuelva a realizar la apuesta');window.location='bienvenido_loteria.php'</script>";
     }
     else {
 

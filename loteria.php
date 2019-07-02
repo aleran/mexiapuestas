@@ -28,6 +28,11 @@
   			-webkit-appearance: none; 
   			margin: 0; 
 		}
+
+		.no-disp{
+			color: red;
+			font-size: 20px;
+		}
 	</style>
 </head>
  <!-- Fecha Sistema -->
@@ -91,7 +96,7 @@
 						$row=mysqli_fetch_array($rs);
 						$num=mysqli_num_rows($rs);
 
-	 					$mod_date = strtotime($row["hora"]."- 1 hour");
+	 					$mod_date = strtotime($row["hora"]."- 1 minute");
                         $fecha_suma= date("H:i:s",$mod_date);
 
                         
@@ -108,6 +113,7 @@
 					?>
 					<h3>Sorteo: <?php echo $row["sorteo"]." (".$row["dia"].")"; ?></h3>
 					<h4>Fecha del Sorteo: <?php echo $row["fecha"]." ".$row["hora"]; ?></h4>
+					<button class="btn btn-danger" data-toggle="modal" data-target="#myModal">Números no disponibles</button>
 					
 				</div>
 				<form action="apuesta_loteria.php" method="POST" name="jugadas">
@@ -188,7 +194,7 @@
 							
 						
 					</div>
-				</div><br>
+				</div>
 				
 				<div class="row">
 
@@ -208,6 +214,33 @@
 			</div>
 			
 		</div>
+		<!--modal-->
+	<div id="myModal" class="modal fade">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                
+	                <h4 class="modal-title"><center><b>Números no disponibles</b></center></h4>
+	            </div>
+	            <div class="modal-body">
+	                <?php 
+
+	                	$sql_frac="SELECT numeros FROM loteria_frac WHERE fracciones='30' AND id_sorteo='".$_GET["sorteo"]."' ORDER BY numeros";
+						$rs_frac=mysqli_query($mysqli, $sql_frac);
+						
+						while ($row_frac=mysqli_fetch_array($rs_frac)) {
+							echo "<span class='no-disp'>".$row_frac["numeros"]."</span> ";
+						}
+						
+	                 ?>
+	                
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-success" id="continuar" data-dismiss="modal" Title="">Cerrar</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 		<?php 
 			include "template/modal_registro.php";
 		?>
@@ -420,7 +453,7 @@
 
       <?php 
         if (isset($_SESSION["tipo"])) {
-          echo 'var t=90;
+          echo 'var t=120;
       setInterval(function(){
         t--;
         if (t<=0) {

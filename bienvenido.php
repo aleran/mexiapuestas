@@ -132,7 +132,7 @@
 							saber_dia(date("Y-m-d"));
 						}else{
 
-							$sql_sorteo="SELECT n.sorteo,n.dia,n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE inicio= 0 AND n.pais=3";
+							$sql_sorteo="SELECT n.sorteo,n.dia, n.id as nid, n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE inicio=0 AND n.pais=3";
 				            $rs_sorteo=mysqli_query($mysqli,$sql_sorteo) or die(mysqli_error());
 				             
 
@@ -143,7 +143,7 @@
 								$row=mysqli_fetch_array($rs);
 								$num=mysqli_num_rows($rs);
 
-			 					$mod_date = strtotime($row["hora"]."- 1 hour");
+			 					$mod_date = strtotime($row["hora"]."- 1 minute");
 		                        $fecha_suma= date("H:i:s",$mod_date);
 
                         
@@ -157,7 +157,13 @@
 								}
 		
 
-				            	echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-danger">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+				            	if ($row_sorteo["nid"] == 8) {
+									echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
+								}else {
+
+									echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+								}
 				            }
 
 						}
