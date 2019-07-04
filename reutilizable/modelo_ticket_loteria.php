@@ -18,7 +18,7 @@ if (isset($_GET["cod_t"])) {
     $rs_ticket=(mysqli_query($mysqli, $sql_ticket)) or die(mysqli_error());
     $row_ticket=mysqli_fetch_array($rs_ticket);
 
-    $sql_agen="SELECT agencia FROM agencias WHERE id='".$row_ticket["agencia"]."'";
+    $sql_agen="SELECT agencia, agencia_padre FROM agencias WHERE id='".$row_ticket["agencia"]."'";
     $rs_agen=mysqli_query($mysqli,$sql_agen) or die(mysqli_error());
     $row_agen=mysqli_fetch_array($rs_agen);
 
@@ -35,7 +35,7 @@ else {
         echo "<script>alert('Ticket no existe');window.location='consultas.php';</script>";
     }
 
-    $sql_agen="SELECT agencia FROM agencias WHERE id='".$row_ticket["agencia"]."'";
+    $sql_agen="SELECT agencia, agencia_padre FROM agencias WHERE id='".$row_ticket["agencia"]."'";
     $rs_agen=mysqli_query($mysqli,$sql_agen) or die(mysqli_error());
     $row_agen=mysqli_fetch_array($rs_agen);
 }
@@ -57,8 +57,14 @@ $compe_select=array();
     </style>';
     echo '<div class="col-lg-6 col-lg-offset-5">';
     echo '<div id="ticket">';
+    if ($row_agen["agencia_padre"] == 26) {
+        echo '<center>GANA DIARIO</center><br><br>';
+    }
     echo "www.mexiapuestas.net<br>";
     echo "Agencia: ".$row_agen["agencia"]."<br>";
+    if ($row_agen["agencia_padre"] == 26) {
+         echo "Telefono: 5544842237<br>";
+    }
     echo "Apuesta: LOTERIA NACIONAL DE MEXICO<br>";
     list($a,$m,$d)= explode("-",$row_ticket["fecha"]);
     $fecha = $d."/".$m."/".$a;

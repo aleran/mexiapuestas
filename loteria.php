@@ -29,8 +29,8 @@
   			margin: 0; 
 		}
 
-		.no-disp{
-			color: red;
+		.disp{
+			color: #04B700;
 			font-size: 20px;
 		}
 	</style>
@@ -113,7 +113,7 @@
 					?>
 					<h3>Sorteo: <?php echo $row["sorteo"]." (".$row["dia"].")"; ?></h3>
 					<h4>Fecha del Sorteo: <?php echo $row["fecha"]." ".$row["hora"]; ?></h4>
-					<button class="btn btn-danger" data-toggle="modal" data-target="#myModal">Números no disponibles</button>
+					<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Números disponibles</button>
 					
 				</div>
 				<form action="apuesta_loteria.php" method="POST" name="jugadas">
@@ -220,7 +220,7 @@
 	        <div class="modal-content">
 	            <div class="modal-header">
 	                
-	                <h4 class="modal-title"><center><b>Números no disponibles</b></center></h4>
+	                <h4 class="modal-title"><center><b>Números disponibles</b></center></h4>
 	            </div>
 	            <div class="modal-body">
 	                <?php 
@@ -228,10 +228,17 @@
 	                	$sql_frac="SELECT numeros FROM loteria_frac WHERE fracciones='30' AND id_sorteo='".$_GET["sorteo"]."' ORDER BY numeros";
 						$rs_frac=mysqli_query($mysqli, $sql_frac);
 						
+						$t_numeros=["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99"];
 						while ($row_frac=mysqli_fetch_array($rs_frac)) {
-							echo "<span class='no-disp'>".$row_frac["numeros"]."</span> ";
+							$indice= array_search($row_frac["numeros"],$t_numeros);
+							unset($t_numeros[$indice]);
+							
 						}
 						
+						foreach ($t_numeros as $num) {
+
+							echo "<span class='disp'>".$num."</span> ";
+						}
 	                 ?>
 	                
 	            </div>

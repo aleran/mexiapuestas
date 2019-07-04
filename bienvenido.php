@@ -156,14 +156,29 @@
 									
 								}
 		
+								if ($_SESSION["tipo"] =="admin") {
 
-				            	if ($row_sorteo["nid"] == 8) {
-									echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
-								}else {
+									if (date("H:i:s")>"05:59:59") {
 
-									echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+										if ($row_sorteo["nid"] == 8) {
+											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
+										}else {
 
-								}
+											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+										}
+									}
+									}else{
+										if ($row_sorteo["nid"] == 8) {
+											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
+										}else {
+
+											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+										}
+
+									}
+				            	
 				            }
 
 						}

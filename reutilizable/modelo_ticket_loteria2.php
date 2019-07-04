@@ -12,8 +12,14 @@
     </style>';
     echo '<div class="col-lg-6 col-lg-offset-5">';
     echo '<div id="ticket2">';
+    if ($row_agen["agencia_padre"] == 26) {
+        echo "            GANA DIARIO\$intro$\$intro$";
+    }
     echo "www.mexiapuestas.net\$intro$";
     echo "Agencia: ".$row_agen["agencia"]."\$intro$";
+    if ($row_agen["agencia_padre"] == 26) {
+        echo "Telefono: 5544842237\$intro$";
+    }
     echo "Apuesta: LOTERIA NACIONAL DE MEXICO\$intro$";
     list($a,$m,$d)= explode("-",$row_ticket["fecha"]);
     $fecha = $d."/".$m."/".$a;
