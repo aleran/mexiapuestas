@@ -143,7 +143,7 @@
 							<td><img class="btn_delete" src="images/borrar.png"></td>
 						</tr>
 					</table><br>
-					<center><label for="frac">Fracciones:</label> <input type="number" name="fracciones" id="frac" required value="1"></center>
+					<center><label for="frac">Fracciones:</label> <input type="number" name="fracciones" id="frac" required value=""></center>
 				</div>
 				<div class="col-sm-4 ganancias">
 							Valor del boleto: <br> $<span class="monto">150</span><br>
@@ -339,15 +339,15 @@
 				{
 					$('#campo').val($('#campo').val().substr(0, $('#campo').val().length - 1));
 					$('#numeros').text($('#numeros').text().substr(0, $('#numeros').text().length - 1));
-					$("#frac").val("1");
-					$("#monto").val("150");
-					$(".monto").text("150");
+					$("#frac").val("");
+					$("#monto").val("");
+					$(".monto").text("");
 				}
 				else
 				{
 					$('#campo').val($('#campo').val() + number);
 					$('#numeros').text($('#campo').val());
-					$("#frac").val("1");
+					$("#frac").val("");
 					$("#monto").val("150");
 					$(".monto").text("150");
 				
@@ -357,7 +357,7 @@
 				 		alert("solo se permiten 2 cifras");
 				 		$('#campo').val("");
 						$('#numeros').text("");
-						$("#frac").val("1");
+						$("#frac").val("");
 			        	
 			        }
 

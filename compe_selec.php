@@ -139,7 +139,7 @@
                                         </thead>';
                                         echo '<tbody>';
                                             $id_comp=$row["id_competicion"];
-                                            $mod_date = strtotime(date("Y-m-d")."+ 1 day");
+                                            $mod_date = strtotime(date("Y-m-d")."+ 2 day");
                                             $fecha_suma= date("Y-m-d",$mod_date);
                                             if ($_SESSION["pais"]==1 || $_POST["pais"]==1 || $_SESSION["pais"]==4 || $_POST["pais"]==4) {
 

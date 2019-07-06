@@ -87,7 +87,7 @@ ini_set('error_reporting', E_ALL);
 
           $total_frac=$row["fracciones"] + $_POST["fracciones"];
 
-          $sql_frac="UPDATE loteria_frac SET fracciones='".$total_frac."' WHERE id_sorteo='".$_POST["sorteo"]."'";
+          $sql_frac="UPDATE loteria_frac SET fracciones='".$total_frac."' WHERE id_sorteo='".$_POST["sorteo"]."' AND numeros='".$_POST["numeros"]."'";
           $rs_frac=mysqli_query($mysqli,$sql_frac) or die(mysqli_error($mysqli));
           
         }else{
@@ -112,7 +112,7 @@ ini_set('error_reporting', E_ALL);
 
           $total_frac=$row_f["fracciones"] + $_POST["fracciones"];
 
-          $sql_frac="UPDATE loteria_frac SET fracciones='".$total_frac."' WHERE id_sorteo='".$_POST["sorteo"]."'";
+          $sql_frac="UPDATE loteria_frac SET fracciones='".$total_frac."' WHERE id_sorteo='".$_POST["sorteo"]."' AND numeros='".$_POST["numeros"]."'";
           $rs_frac=mysqli_query($mysqli,$sql_frac) or die(mysqli_error($mysqli));
           
         }else{
