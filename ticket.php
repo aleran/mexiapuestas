@@ -26,34 +26,17 @@
 	          
          var ticket= $("#ticket2").html();
        
-       var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-       
-       if(es_firefox){
-           
-           <?php if ($_SESSION["tipo"]!="normal") { ?>
-            if($(window).width() <= 970)  {
-                 
-                window.location="com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$"
-            }
-            else {
-                window.print();
-            }
-        <?php }?>
-           
-       }else{
-           
+              
            <?php if ($_SESSION["tipo"]!="normal") { ?>
             if(window.screen.width <= 970)  {
                  
-                window.location="https://com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$";
-                
+                window.location="com.fidelier.printfromweb://$small$"+ticket+"$intro$$intro$$cut$$intro$";
             }
             else {
                 window.print();
             }
         <?php }?>
            
-       }
        
         <?php if ($_SESSION["pais"]==1) { ?>
            <?php if ($row_ticket["tipo"]=="combinada") { ?>

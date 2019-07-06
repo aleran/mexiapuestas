@@ -10,7 +10,7 @@
       date_default_timezone_set('America/Mexico_City');
       
     } 
-    if (isset($_SESSION["tipo"])) {
+    if (isset($_SESSION["tipo"]) && $_POST["premio"] > 0) {
        do {
          $caracteres = "1234567890"; //posibles caracteres a usar
          $numerodeletras=8; //numero de letras para generar el texto
@@ -88,6 +88,10 @@
 
     }
    echo "<script>window.location='ticket.php?cod_t=".$ticket."'</script>";       
+  }else{
+
+    echo "<script>alert('La apuesta no se realizo, vuelva a intentarlo');window.location='competiciones.php'</script>";
+
   }                    
            
                       
