@@ -17,7 +17,20 @@
 			$rs3=mysqli_query($mysqli,$sql3) or die(mysqli_error($mysqli));
 
 		}
+		$sql_nums="SELECT id_sorteo, numeros, premio FROM loteria WHERE codigo='".$_GET["anular"]."'";
+		$rs_nums=mysqli_query($mysqli,$sql_nums) or die(mysqli_error());
+		$row_nums=mysqli_fetch_array($rs_nums);
+		$frac_an=$row_nums["premio"] / 10000;
 
+		$sql_f="SELECT fracciones FROM loteria_frac WHERE numeros='".$row_nums["numeros"]."' AND id_sorteo='".$row_nums["id_sorteo"]."'";
+		$rs_f=mysqli_query($mysqli,$sql_f) or die(mysqli_error());
+		$row_f=mysqli_fetch_array($rs_f);
+		$frac_total=$row_f["fracciones"] - $frac_an;
+
+
+		$sql_anular="UPDATE loteria_frac SET fracciones='".$frac_total."' WHERE id_sorteo='".$row_nums["id_sorteo"]."' AND numeros='".$row_nums["numeros"]."'";
+		$rs_anular=mysqli_query($mysqli,$sql_anular) or die(mysqli_error($mysqli));
+		
 		$sql_anular="UPDATE loteria SET activo='0' WHERE codigo='".$_GET["anular"]."'";
 		$rs_anular=mysqli_query($mysqli,$sql_anular) or die(mysqli_error($mysqli));
 		echo "<script>alert('ticket anulado');window.location='consultas.php'</script>";
