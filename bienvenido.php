@@ -143,7 +143,7 @@
 								$row=mysqli_fetch_array($rs);
 								$num=mysqli_num_rows($rs);
 
-			 					$mod_date = strtotime($row["hora"]."- 1 minute");
+			 					$mod_date = strtotime($row["hora"]."- 30 minute");
 		                        $fecha_suma= date("H:i:s",$mod_date);
 
                         
