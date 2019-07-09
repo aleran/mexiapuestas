@@ -10,9 +10,11 @@
 					<li><a href="#" data-toggle="modal" data-target="#modalRegistro"><span class="mif-user-plus mif-3x principales"></span>CREAR USUARIO</a></li>
 
 					<li><a href="https://www.mexiapuestas.net/list_sorteos.php" ><span class="mif-dice mif-3x principales"></span>EVAL SORTEOS</a></li>
+					<?php } ?>
 
-					<li><a href="https://www.mexiapuestas.net/chances_dia.php"  title="Estados Financieros"><span class="mif-download2 mif-3x principales"></span>DESCARGAR HOY</a></li>
-				<?php } ?>
+					<?php if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") { ?>
+						<li><a href="selec_sorte.php"  title="Estados Financieros"><span class="mif-download2 mif-3x principales"></span>NUM. JUGADOS</a></li>
+					<?php } ?>
 
 				<li><a href="https://www.mexiapuestas.net/bienvenido_loteria.php"><span class="mif-coins mif-3x principales"></span>CHANCE</a></li>
 

@@ -68,7 +68,7 @@
 		<div class="container-fluid">
 			<br>
 			<div class="row">
-               
+               		<center><h4>Por agencia</h4></center>
                     <div class="col-sm-6 col-xs-offset-2">
                 	
 	                	 <form class="form-horizontal" method="POST" action="saldo_agencia.php">
@@ -104,7 +104,7 @@
                             <div class="form-group">
                                 <label for="desde" class="col-sm-4 control-label">Desde:</label>
                                 <div class="col-sm-6">
-                                    <input type="text"  name="desde" id="desde" class="form-control" autocomplete="off">
+                                    <input type="text"  name="desde" id="desde" class="form-control" autocomplete="off" required>
                                     	
                                 </div>
                                  
@@ -112,7 +112,7 @@
                             <div class="form-group">
                                 <label for="hasta" class="col-sm-4 control-label">Hasta:</label>
                                 <div class="col-sm-6">
-                                    <input type="text"  name="hasta" id="hasta" class="form-control" autocomplete="off">
+                                    <input type="text"  name="hasta" id="hasta" class="form-control" autocomplete="off" required>
                                     	
                                 </div>
                                  <button class="btn btn-primary">Consultar</button>
@@ -124,8 +124,48 @@
 	                
                 </div>
             </div>
+            <div class="row">
+            	<div class="col-sm-6 col-xs-offset-2">
+            	<form class="form-horizontal" method="POST" action="saldo_general.php">
+            	<?php if ($_SESSION["tipo"]=="root") {
+            		echo '<center><h4>Iztapalapa</h4></center>';
+
+            		 echo '<div class="form-group">
+                           	<label for="agencia" class="col-sm-4 control-label">Agencia:</label>
+                                <div class="col-sm-6">
+                                    <select  name="agencia" id="agencia" class="form-control">';
+                    $sql_agencias="SELECT * FROM agencias WHERE id='26'";
+                    $rs_agencias=mysqli_query($mysqli,$sql_agencias) or die(mysqli_error());
+                    while ($row_agencias=mysqli_fetch_array($rs_agencias)) {
+                        echo  '<option value='.$row_agencias["id"].'>'.$row_agencias["agencia"].'</option>';
+                    }
+                     echo '</select>
+                        </div>
+                                     
+                    </div>';
+                }                
+            	?>
+            	<div class="form-group">
+                                <label for="desde1" class="col-sm-4 control-label">Desde:</label>
+                                <div class="col-sm-6">
+                                    <input type="text"  name="desde" id="desde1" class="form-control" autocomplete="off">
+                                    	
+                                </div>
+                                 
+                            </div>
+                            <div class="form-group">
+                                <label for="hasta1" class="col-sm-4 control-label">Hasta:</label>
+                                <div class="col-sm-6">
+                                    <input type="text"  name="hasta" id="hasta1" class="form-control" autocomplete="off" required>
+                                    	
+                                </div>
+                                 <button class="btn btn-primary" required>Consultar</button>
+                            </div>
+            </div>
 			
 		</div>
+		  
+		</form>
 		<?php 
 			include "template/modal_registro.php";
 		?>
@@ -171,6 +211,27 @@
 	
 		});
 		$("#hasta").datepicker({
+			changeMonth: true, // Mostrar el mes
+			changeYear: true, // Poder cambiar el año
+			showOtherMonths: true, //Mostrar cuadrilcula
+			showButtonPanel: true, // Mostrar botones
+			dateFormat: 'yy-mm-dd',
+			
+
+	
+		});
+
+		$("#desde1").datepicker({
+			changeMonth: true, // Mostrar el mes
+			changeYear: true, // Poder cambiar el año
+			showOtherMonths: true, //Mostrar cuadrilcula
+			showButtonPanel: true, // Mostrar botones
+			dateFormat: 'yy-mm-dd',
+			
+
+	
+		});
+		$("#hasta1").datepicker({
 			changeMonth: true, // Mostrar el mes
 			changeYear: true, // Poder cambiar el año
 			showOtherMonths: true, //Mostrar cuadrilcula
