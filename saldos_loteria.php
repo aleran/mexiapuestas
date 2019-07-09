@@ -140,8 +140,9 @@
 		</div>
 		<div class="row">
             	<div class="col-sm-6 col-xs-offset-2">
+            	<?php if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") { ?>
             	<form class="form-horizontal" method="POST" action="saldo_general_l.php">
-            	<?php if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
+            		<?php 
             		echo '<center><h4>Iztapalapa</h4></center>';
 
             		 echo '<div class="form-group">
@@ -159,27 +160,29 @@
                     </div>';
                 }                
             	?>
+            	<?php if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") { ?>
             	<div class="form-group">
-                                <label for="desde1" class="col-sm-4 control-label">Desde:</label>
-                                <div class="col-sm-6">
-                                    <input type="text"  name="desde" id="desde1" class="form-control" autocomplete="off">
+                     <label for="desde1" class="col-sm-4 control-label">Desde:</label>
+                        <div class="col-sm-6">
+                            <input type="text"  name="desde" id="desde1" class="form-control" autocomplete="off">
                                     	
-                                </div>
+                        </div>
                                  
-                            </div>
-                            <div class="form-group">
-                                <label for="hasta1" class="col-sm-4 control-label">Hasta:</label>
-                                <div class="col-sm-6">
-                                    <input type="text"  name="hasta" id="hasta1" class="form-control" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hasta1" class="col-sm-4 control-label">Hasta:</label>
+                            <div class="col-sm-6">
+                                <input type="text"  name="hasta" id="hasta1" class="form-control" autocomplete="off" required>
                                     	
-                                </div>
-                                 <button class="btn btn-primary" required>Consultar</button>
                             </div>
+                             <button class="btn btn-primary" required>Consultar</button>
+                        </div>
             </div>
 			
 		</div>
 		  
 		</form>
+		<?php } ?>
 		<?php 
 			include "template/modal_registro.php";
 		?>

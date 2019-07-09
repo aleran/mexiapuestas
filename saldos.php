@@ -126,8 +126,9 @@
             </div>
             <div class="row">
             	<div class="col-sm-6 col-xs-offset-2">
+            	<?php if ($_SESSION["tipo"]=="root") { ?>
             	<form class="form-horizontal" method="POST" action="saldo_general.php">
-            	<?php if ($_SESSION["tipo"]=="root") {
+            		<?php
             		echo '<center><h4>Iztapalapa</h4></center>';
 
             		 echo '<div class="form-group">
@@ -145,6 +146,7 @@
                     </div>';
                 }                
             	?>
+            	<?php if ($_SESSION["tipo"]=="root") {?>
             	<div class="form-group">
                                 <label for="desde1" class="col-sm-4 control-label">Desde:</label>
                                 <div class="col-sm-6">
@@ -166,6 +168,7 @@
 		</div>
 		  
 		</form>
+		<?php } ?>
 		<?php 
 			include "template/modal_registro.php";
 		?>

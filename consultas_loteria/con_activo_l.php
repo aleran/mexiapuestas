@@ -133,7 +133,7 @@
 	            	<?php 
 	            	echo "<button class='btn btn-primary hidden-print' id='imprimir' type='button'>Imprimir</button><br><br>";
 
-			            if ($_SESSION["tipo"]=="root") {
+			            if ($_SESSION["tipo"]=="root"|| $_SESSION["tipo"]=="chance") {
 			                echo '<a href="#" id="anular" class="btn btn-danger hidden-print">Anular Ticket</a> ';
 						} 
 
