@@ -19,7 +19,26 @@
 	
 	<!--Fuentes-->
 	<style>
-       
+        #ganador{
+            position: absolute;
+            margin-top: -510;
+            margin-left: 35;
+            z-index: 100;
+            color:#2FB209;
+            font-size: 40px;
+            -webkit-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+        }
+        #perdedor{
+            position: absolute;
+            margin-top: -510;
+            margin-left: 35;
+            z-index: 100;
+            color:#E61423;
+            font-size: 40px;
+            -webkit-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+        }
     </style>
 </head>
  <!-- Fecha Sistema -->
@@ -73,7 +92,7 @@
                    <div class="col-sm-6 col-xs-offset-1">
                     <?php
 
-                        if ($_SESSION["tipo"]=="root") {
+                        if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
 
                             if (isset($_GET["codigo"])) {
                                 $codigo=$_GET["codigo"];
@@ -104,7 +123,7 @@
                     
                     <?php
 
-                        if ($_SESSION["tipo"]=="root" || $_SESSION["usuario"]=="111111111") {
+                        if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
                              if ($row_ticket["ganar"]=='3') {
                                 echo '<a href="#" id="anular" class="btn btn-danger hidden-print">Anular Ticket</a> 
                                     <br><br>';

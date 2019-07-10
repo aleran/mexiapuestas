@@ -104,7 +104,7 @@
 	                		$sql_act="SELECT * FROM loteria WHERE activo='1' AND ganar='0' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
 	                	}elseif ($_SESSION["tipo"]=="chance") {
 
-	                		$sql_act="SELECT l.* FROM loteria l JOIN agencias a ON a.id=l.agencia WHERE l.activo='1'WHERE l.activo='1' AND l.ganar='0' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (l.fecha BETWEEN '".$desde."' AND '".$hasta."')";
+	                		$sql_act="SELECT l.* FROM loteria l JOIN agencias a ON a.id=l.agencia WHERE l.activo='1' AND l.ganar='0' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (l.fecha BETWEEN '".$desde."' AND '".$hasta."')";
 	                	}
 	                	else {
 	                		$sql_act="SELECT * FROM loteria WHERE activo='1' AND ganar='0' AND agencia='".$_SESSION["agencia"]."'AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
