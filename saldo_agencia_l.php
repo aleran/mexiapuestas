@@ -76,7 +76,7 @@
 				<?php
                           if ($_SESSION["tipo"]=="root" || $_SESSION["tipo"]=="chance") {
 
-                            $sql="SELECT agencia FROM agencias WHERE id='".$_POST["agencia"]."'";
+                            $sql="SELECT a.agencia, u.id FROM agencias a JOIN usuarios u ON a.id=u.agencia WHERE a.id='".$_POST["agencia"]."'";
                                 $rs=mysqli_query($mysqli,$sql);
                                 $row=mysqli_fetch_array($rs);
 
@@ -127,7 +127,7 @@
                     
                       <div class="col-sm-6 col-xs-offset-3">
                     <?php
-                        if ($_SESSION["tipo"]=="root") {
+                        if ($_SESSION["tipo"]!="admin") {
                             echo '<h3><center>Resumen económico para la Agencia:&nbsp;'; echo $row ["agencia"]; echo '</center></h3>';
                         }
 
@@ -205,7 +205,10 @@
 
                     ?>
                 <div class="row">
-                    
+                    <?php if ($_SESSION["tipo"]!="admin") {?>
+        
+                        <center> <button class="btn btn-danger" id="bloquear" data-codigo="<?php echo $row["id"]; ?>">Bloquear usuario</button></center>
+                    <?php } ?>
                     <div class="col-sm-6 col-xs-offset-3">
                     <?php
                   
@@ -250,6 +253,18 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/validacion_registro.js"></script>
+    <script>
+
+        $("#bloquear").click(function(e){
+
+            e.preventDefault();
+            var cod= $(this).attr('data-codigo');
+            if (confirm("¿Seguro que desea bloquear el usuario?")) {
+                window.location="bloquear_usuario.php?id_usuario="+cod;
+            }
+
+        })
+    </script>
 
 </body>
 </html>

@@ -131,8 +131,28 @@
 
 							saber_dia(date("Y-m-d"));
 						}else{
+							if ($_SESSION["tipo"]=="admin") {
+								
+								if (date("H:i:s") < "19:30:00" && date("H:i:s") > "05:59:00") {
 
-							$sql_sorteo="SELECT n.sorteo,n.dia, n.id as nid, n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE inicio=0 AND n.pais=3";
+									$sql_ac="UPDATE usuarios SET activo_chance='1' WHERE cedula='".$_SESSION["usuario"]."'";
+
+				           			$rs_ac=mysqli_query($mysqli,$sql_ac) or die(mysqli_error());
+
+
+								}
+
+							}
+							
+							$sql_ac="SELECT u.activo_chance FROM usuarios u JOIN agencias a ON u.agencia=a.id WHERE a.agencia_padre='26' AND u.cedula='".$_SESSION["usuario"]."'";
+				            $rs_ac=mysqli_query($mysqli,$sql_ac) or die(mysqli_error());
+				            $row_ac=mysqli_fetch_array($rs_ac);
+
+				            if ($_SESSION["tipo"]=="admin") {
+				            	
+				            	if ($row_ac["activo_chance"]==1) {
+				            		
+				            		$sql_sorteo="SELECT n.sorteo,n.dia, n.id as nid, n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE inicio=0 AND n.pais=3";
 				            $rs_sorteo=mysqli_query($mysqli,$sql_sorteo) or die(mysqli_error());
 				             
 
@@ -165,7 +185,7 @@
 										
 										
 				            	
-				            		}
+				            	}
 				            		
 
 				            		if ($row_sorteo["nid"]==8){
@@ -250,9 +270,136 @@
 											}
 										}
 											
-										}
 									}
 							}
+
+				            	}
+				            }else{
+				            	$sql_sorteo="SELECT n.sorteo,n.dia, n.id as nid, n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE inicio=0 AND n.pais=3";
+				            $rs_sorteo=mysqli_query($mysqli,$sql_sorteo) or die(mysqli_error());
+				             
+
+				            while ($row_sorteo=mysqli_fetch_array($rs_sorteo)) {
+
+				            	$sql="SELECT n.sorteo, n.dia, n.hora, s.id, s.fecha FROM nombre_sorteos n JOIN sorteos s ON n.id=s.nombre_sorteo WHERE s.id='".$row_sorteo["id"]."'";
+								$rs=mysqli_query($mysqli, $sql);
+								$row=mysqli_fetch_array($rs);
+								$num=mysqli_num_rows($rs);
+
+			 					$mod_date = strtotime($row["hora"]."- 30 minute");
+		                        $fecha_suma= date("H:i:s",$mod_date);
+
+                        
+								if (date("Y-m-d H:i:s") > $row["fecha"]." ".$fecha_suma ) {
+
+									$sql_as="UPDATE sorteos SET inicio=1 WHERE id='".$row_sorteo["id"]."'";
+									$rs_as=mysqli_query($mysqli, $sql_as);
+									
+									
+									
+								}
+		
+								function saber_dia($nombredia) {
+								
+										$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
+
+										return $fecha = $dias[date('N', strtotime($nombredia))];
+										
+										
+										
+				            	
+				            	}
+				            		
+
+				            		if ($row_sorteo["nid"]==8){
+											
+										if (saber_dia(date("Y-m-d")) == "Martes") {
+
+											if (date("H:i:s")<"19:30:00") {
+												
+												echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
+
+											}
+											
+										}else {
+
+											if(saber_dia(date("Y-m-d")) !="Viernes") {
+												if ($_SESSION["tipo"]=="admin") {
+
+													echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+												}else{
+													if(saber_dia(date("Y-m-d")) =="Sabado"){
+														if (date("H:i:s")>"05:59:00") {
+
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+														}
+
+
+													}else{
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+
+											}else{
+
+												if ($_SESSION["tipo"]!="admin") {
+													if (date("H:i:s")>"19:30:00") {
+
+														echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+											}
+										}
+										
+									}else{
+
+										if (saber_dia(date("Y-m-d")) == "Viernes") {
+
+
+											if (date("H:i:s")<"19:30:00") {
+													
+												echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+											}
+
+										}else  {
+											if(saber_dia(date("Y-m-d")) !="Martes") {
+												if ($_SESSION["tipo"]=="admin") {
+
+													echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+												}else{
+													if(saber_dia(date("Y-m-d")) =="Mircoles"){
+														if (date("H:i:s")>"05:59:00") {
+
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+														}
+
+
+													}else{
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+
+											}else{
+
+												if ($_SESSION["tipo"]!="admin") {
+													if (date("H:i:s")>"19:30:00") {
+
+														echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+											}
+										}
+											
+									}
+							}
+				            }
+
+							
+							
+						}
 						
 						?>
 						<?php if ($_SESSION["pais"]==1) { ?>
@@ -316,5 +463,3 @@
 
 </body>
 </html>
-
-
