@@ -141,32 +141,106 @@
 									
 								}
 								
-								if ($_SESSION["tipo"] =="admin") {
+							
 
-									if (date("H:i:s")>"05:59:59" && date("H:i:s")<"19:30:00") {
+									function saber_dia($nombredia) {
+								
+										$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
 
-										if ($row_sorteo["nid"] == 8) {
-											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
-										}else {
-
-											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
-
-										}
-									}
-									}else{
-										if ($row_sorteo["nid"] == 8) {
-											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
-										}else {
-
-											echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
-
-										}
-
-									}
+										return $fecha = $dias[date('N', strtotime($nombredia))];
+										
+										
+										
 				            	
-				            }
+				            		}
+				            		
 
-						}
+				            		if ($row_sorteo["nid"]==8){
+											
+										if (saber_dia(date("Y-m-d")) == "Martes") {
+
+											if (date("H:i:s")<"19:30:00") {
+												
+												echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-primary">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a> ';
+
+											}
+											
+										}else {
+
+											if(saber_dia(date("Y-m-d")) !="Viernes") {
+												if ($_SESSION["tipo"]=="admin") {
+
+													echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+												}else{
+													if(saber_dia(date("Y-m-d")) =="Sabado"){
+														if (date("H:i:s")>"05:59:00") {
+
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+														}
+
+
+													}else{
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+
+											}else{
+
+												if ($_SESSION["tipo"]!="admin") {
+													if (date("H:i:s")>"19:30:00") {
+
+														echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+											}
+										}
+										
+									}else{
+
+										if (saber_dia(date("Y-m-d")) == "Viernes") {
+
+
+											if (date("H:i:s")<"19:30:00") {
+													
+												echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+											}
+
+										}else  {
+											if(saber_dia(date("Y-m-d")) !="Martes") {
+												if ($_SESSION["tipo"]=="admin") {
+
+													echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+												}else{
+													if(saber_dia(date("Y-m-d")) =="Mircoles"){
+														if (date("H:i:s")>"05:59:00") {
+
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+
+														}
+
+
+													}else{
+															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+
+											}else{
+
+												if ($_SESSION["tipo"]!="admin") {
+													if (date("H:i:s")>"19:30:00") {
+
+														echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
+													}
+												}
+											}
+										}
+											
+										}
+									}
+							}
+						
 						?>
 
 					<?php if ($_SESSION["pais"]==1) { ?>
