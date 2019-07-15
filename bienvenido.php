@@ -131,7 +131,19 @@
 
 							saber_dia(date("Y-m-d"));
 						}else{
-							if ($_SESSION["tipo"]=="admin") {
+
+
+								function saber_dia($nombredia) {
+								
+										$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
+
+										return $fecha = $dias[date('N', strtotime($nombredia))];
+										
+										
+										
+				            	
+				            	}
+							if(saber_dia(date("Y-m-d")) !="Miercoles" && saber_dia(date("Y-m-d")) !="Viernes") { 
 								
 								if (date("H:i:s") < "19:30:00" && date("H:i:s") > "05:59:00") {
 
@@ -176,16 +188,6 @@
 									
 								}
 		
-								function saber_dia($nombredia) {
-								
-										$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
-
-										return $fecha = $dias[date('N', strtotime($nombredia))];
-										
-										
-										
-				            	
-				            	}
 				            		
 
 				            		if ($row_sorteo["nid"]==8){
@@ -205,7 +207,7 @@
 
 													echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
 												}else{
-													if(saber_dia(date("Y-m-d")) =="Sabado"){
+													if(saber_dia(date("Y-m-d")) =="Miercoles"){
 														if (date("H:i:s")>"05:59:00") {
 
 															echo '<a href="loteria.php?sorteo='.$row_sorteo["id"].'" class="btn btn-success">'.$row_sorteo["sorteo"].' ('.$row_sorteo["dia"].')</a>';
@@ -299,16 +301,7 @@
 									
 								}
 		
-								function saber_dia($nombredia) {
 								
-										$dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado');
-
-										return $fecha = $dias[date('N', strtotime($nombredia))];
-										
-										
-										
-				            	
-				            	}
 				            		
 
 				            		if ($row_sorteo["nid"]==8){
@@ -400,6 +393,8 @@
 							
 							
 						}
+						
+						
 						
 						?>
 						<?php if ($_SESSION["pais"]==1) { ?>

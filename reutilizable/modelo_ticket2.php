@@ -301,6 +301,7 @@
                             echo "- Este ticket expira 5 DIAS luego de su IMPRESION\$intro$";
                             echo "- Sin ticket no se cobra el premio.\$intro$";
                             echo "- En caso de error de LINEA, hora programada, apuestas fuera de tiempo o comenzando el evento, estas serán CANCELADAS y el monto apostado SERA devuelto en consecuencia.\$intro$";
+                            echo "- Las apuestas de fútbol están basadas en el resultado al final de los 90 Minutos de Juego, no incluye prorroga ni penales.\$intro$";
                             echo "Conozco y acepto las reglas.\$intro$";
                             echo "visita www.mexiapuestas.net\$intro$";
     echo "</div>";

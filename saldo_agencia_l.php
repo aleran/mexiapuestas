@@ -208,6 +208,8 @@
                     <?php if ($_SESSION["tipo"]!="admin") {?>
         
                         <center> <button class="btn btn-danger" id="bloquear" data-codigo="<?php echo $row["id"]; ?>">Bloquear usuario</button></center>
+
+                        <center> <button class="btn btn-success" id="desbloquear" data-codigo="<?php echo $row["id"]; ?>">Desbloquear usuario</button></center>
                     <?php } ?>
                     <div class="col-sm-6 col-xs-offset-3">
                     <?php
@@ -261,6 +263,15 @@
             var cod= $(this).attr('data-codigo');
             if (confirm("¿Seguro que desea bloquear el usuario?")) {
                 window.location="bloquear_usuario.php?id_usuario="+cod;
+            }
+
+        })
+         $("#desbloquear").click(function(e){
+
+            e.preventDefault();
+            var cod= $(this).attr('data-codigo');
+            if (confirm("¿Seguro que desea bloquear el usuario?")) {
+                window.location="desbloquear_usuario.php?id_usuario="+cod;
             }
 
         })

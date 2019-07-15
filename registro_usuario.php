@@ -49,7 +49,7 @@ Colombia, 2017
                         </select>
                     </div>
 		            <div class="form-group w3layouts w3 w3l">
-						<label for="cedula" class="control-label">Cédula de Identidad</label>
+						<label for="cedula" class="control-label">Documento de Identidad</label>
 						<input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ejm: 1020987533"  required>
 						<div class="help-block with-errors"></div>
 					</div>
