@@ -105,7 +105,7 @@ ini_set('error_reporting', E_ALL);
         else {
 
 
-          $sql_loteria="INSERT INTO loteria(id_sorteo,codigo,agencia,fecha,hora,numeros,monto,premio,ganar,activo) VALUES('".$_POST["sorteo"]."','".$ticket."','".$_SESSION['agencia']."','".fecha()."','".hora()."','".$_POST["numeros"]."','".$_POST["monto"]."','".$_POST["total"]."','3','1')";
+          $sql_loteria="INSERT INTO loteria(id_sorteo,codigo,agencia,nombre_cliente,tel_cliente,fecha,hora,numeros,monto,premio,ganar,activo) VALUES('".$_POST["sorteo"]."','".$ticket."','".$_SESSION['agencia']."','".$_POST['nombre_cliente']."','".$_POST['tel_cliente']."','".fecha()."','".hora()."','".$_POST["numeros"]."','".$_POST["monto"]."','".$_POST["total"]."','3','1')";
 
           $rs=mysqli_query($mysqli,$sql_loteria) or die(mysqli_error($mysqli));
 

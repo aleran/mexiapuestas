@@ -14,7 +14,7 @@
 </style>
 <?php
 if (isset($_GET["cod_t"])) {
-    $sql_ticket="SELECT codigo, agencia, tipo, fecha, hora, monto, premio, tipo FROM parlay WHERE codigo='".$_GET["cod_t"]."'";
+    $sql_ticket="SELECT codigo, agencia, nombre_cliente, tel_cliente, cedula, tipo, fecha, hora, monto, premio, tipo FROM parlay WHERE codigo='".$_GET["cod_t"]."'";
     $rs_ticket=(mysqli_query($mysqli, $sql_ticket)) or die(mysqli_error());
     $row_ticket=mysqli_fetch_array($rs_ticket);
 
@@ -26,7 +26,7 @@ if (isset($_GET["cod_t"])) {
 
 else {
 
-    $sql_ticket="SELECT codigo, agencia, tipo, fecha, hora, monto, premio, ganar, pagado, push FROM parlay WHERE codigo='".$codigo."'";
+    $sql_ticket="SELECT codigo, agencia, nombre_cliente, tel_cliente, cedula,  tipo, fecha, hora, monto, premio, ganar, pagado, push FROM parlay WHERE codigo='".$codigo."'";
     $rs_ticket=(mysqli_query($mysqli, $sql_ticket)) or die(mysqli_error());
     $num_ticket=mysqli_num_rows($rs_ticket);
     if ($num_ticket < 1) {
@@ -63,6 +63,12 @@ $compe_select=array();
     $fecha = $d."/".$m."/".$a;
     echo "Fecha: ".$fecha." ".$row_ticket["hora"]."<br>";
     echo "Serial: ".$row_ticket["codigo"]."<br>";
+    if ($row_ticket["cedula"]=="") {
+    
+        echo "<span class='hidden-print'>Cliente: ".$row_ticket["nombre_cliente"]."<br></span>";
+        echo "<span class='hidden-print'>Teléfono: ".$row_ticket["tel_cliente"]."<br></span>";
+        
+    }
     echo "Ticket Vigente por 5 días<br><br>";
 
     if (isset($_GET["cod_t"])) {

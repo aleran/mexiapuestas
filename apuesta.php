@@ -75,7 +75,7 @@
          
     }
     else {
-      $sql_parlay="INSERT INTO parlay(codigo,agencia,tipo,fecha,hora,monto,premio,ganar,pagado,activo) VALUES('".$ticket."','".$_SESSION['agencia']."','".$_POST['tipo']."','".fecha()."','".hora()."','".$_POST["monto"]."','".$_POST["premio"]."','3','0','1')";
+      $sql_parlay="INSERT INTO parlay(codigo,agencia,nombre_cliente,tel_cliente,tipo,fecha,hora,monto,premio,ganar,pagado,activo) VALUES('".$ticket."','".$_SESSION['agencia']."','".$_POST['nombre_cliente']."','".$_POST['tel_cliente']."','".$_POST['tipo']."','".fecha()."','".hora()."','".$_POST["monto"]."','".$_POST["premio"]."','3','0','1')";
       $rs=mysqli_query($mysqli,$sql_parlay) or die(mysqli_error($mysqli));
 
       if ($_SESSION["pais"] !=2 ) {

@@ -143,7 +143,22 @@
 							<td><img class="btn_delete" src="images/borrar.png"></td>
 						</tr>
 					</table><br>
-					<center><label for="frac">Fracciones:</label> <input type="number" name="fracciones" id="frac" required value=""></center>
+					<center>
+						<div class="form-group">
+							<label for="frac">Fracciones:</label> 
+							<input type="number" class="form-control" name="fracciones" id="frac" required value="">
+						</div>
+
+					<?php if ($_SESSION["tipo"]!="normal") { ?>
+                         <div class="form-group">
+                          <label for="nombre_cliente" style="color: black;">Nombre Cliente: </label>
+                          <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente">
+                        </div>
+                        <div class="form-group">
+                          <label for="tel_cliente" style="color: black;">Teléfono Cliente: </label>
+                          <input type="tel" class="form-control" id="tel_cliente" name="tel_cliente" >
+                        </div>
+                      <?php } ?>
 				</div>
 				<div class="col-sm-4 ganancias">
 							Valor del boleto: <br> $<span class="monto">150</span><br>

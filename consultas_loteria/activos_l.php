@@ -161,7 +161,7 @@
 
 	                    }
 
-                        echo "<tr><td></td><td><b><u>TOTAL APOSTADO:  </u></font></b></td><td>$&nbsp,<b>".$row_t_apostado["t_apostado"]."</td></b></tr>";
+                        echo "<tr><td></td><td></td><td></td><td><b><u>TOTAL APOSTADO:  </u></font></b></td><td>$&nbsp,<b>".$row_t_apostado["t_apostado"]."</td></b></tr>";
 
 	                ?>
                     		

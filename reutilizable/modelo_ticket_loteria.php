@@ -14,7 +14,7 @@
 </style>
 <?php
 if (isset($_GET["cod_t"])) {
-    $sql_ticket="SELECT codigo, id_sorteo, agencia,fecha, hora, numeros, monto, premio,ganar,push FROM loteria WHERE codigo='".$_GET["cod_t"]."'";
+    $sql_ticket="SELECT codigo, id_sorteo, agencia, nombre_cliente, tel_cliente, cedula,fecha, hora, numeros, monto, premio,ganar,push FROM loteria WHERE codigo='".$_GET["cod_t"]."'";
     $rs_ticket=(mysqli_query($mysqli, $sql_ticket)) or die(mysqli_error());
     $row_ticket=mysqli_fetch_array($rs_ticket);
 
@@ -26,7 +26,7 @@ if (isset($_GET["cod_t"])) {
 
 else {
     
-  $sql_ticket="SELECT codigo, id_sorteo, agencia,fecha, hora, numeros, monto, premio,ganar,push FROM loteria WHERE codigo='".$codigo."'";
+  $sql_ticket="SELECT codigo, id_sorteo, agencia, nombre_cliente, tel_cliente, cedula,fecha, hora, numeros, monto, premio,ganar,push FROM loteria WHERE codigo='".$codigo."'";
     $rs_ticket=(mysqli_query($mysqli, $sql_ticket)) or die(mysqli_error());
     $num_ticket=mysqli_num_rows($rs_ticket);
     $row_ticket=mysqli_fetch_array($rs_ticket);
@@ -72,6 +72,12 @@ $compe_select=array();
    
     echo "Sorteo: ".$row_ns["sorteo"]." (".$row_ns["dia"].")<br>";
     echo "Serial: ".$row_ticket["codigo"]."<br>";
+    if ($row_ticket["cedula"]=="") {
+    
+        echo "<span class='hidden-print'>Cliente: ".$row_ticket["nombre_cliente"]."<br></span>";
+        echo "<span class='hidden-print'>Teléfono: ".$row_ticket["tel_cliente"]."<br></span>";
+        
+    }
     echo "Ticket Vigente por 5 días<br><br>";
 
             
