@@ -1134,12 +1134,12 @@
                       </div>
                       <?php if ($_SESSION["tipo"]!="normal") { ?>
                          <div class="form-group">
-                          <label for="nombre_cliente" style="color: black;">Nombre Cliente: </label>
-                          <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente">
+                          <label for="nombre_cliente" style="color: black;">Nombre Cliente<small style="color:red;"> *</small></label>
+                          <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente" required>
                         </div>
                         <div class="form-group">
                           <label for="tel_cliente" style="color: black;">Teléfono Cliente: </label>
-                          <input type="tel" class="form-control" id="tel_cliente" name="tel_cliente" >
+                          <input type="tel" class="form-control" id="tel_cliente" name="tel_cliente">
                         </div>
                       <?php } ?>
 
