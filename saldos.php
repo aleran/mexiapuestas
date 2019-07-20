@@ -124,9 +124,10 @@
 	                
                 </div>
             </div>
+            <?php if ($_SESSION["tipo"]=="root") { ?>
             <div class="row">
             	<div class="col-sm-6 col-xs-offset-2">
-            	<?php if ($_SESSION["tipo"]=="root") { ?>
+            	
             	<form class="form-horizontal" method="POST" action="saldo_general.php">
             		<?php
             		echo '<center><h4>Iztapalapa</h4></center>';
@@ -144,9 +145,56 @@
                         </div>
                                      
                     </div>';
-                }                
+                         
             	?>
-            	<?php if ($_SESSION["tipo"]=="root") {?>
+            	
+            	<div class="form-group">
+                                <label for="desde1" class="col-sm-4 control-label">Desde:</label>
+                                <div class="col-sm-6">
+                                    <input type="text"  name="desde" id="desde1" class="form-control" autocomplete="off">
+                                    	
+                                </div>
+                                 
+                            </div>
+                            <div class="form-group">
+                                <label for="hasta1" class="col-sm-4 control-label">Hasta:</label>
+                                <div class="col-sm-6">
+                                    <input type="text"  name="hasta" id="hasta1" class="form-control" autocomplete="off" required>
+                                    	
+                                </div>
+                                 <button class="btn btn-primary" required>Consultar</button>
+                            </div>
+            </div>
+			
+		</div>
+		  
+		</form>
+		<?php } ?>
+		<br>
+		<?php if ($_SESSION["tipo"]=="root" || $_SESSION['usuario']=="112244555") { ?>
+		<div class="row">
+            	<div class="col-sm-6 col-xs-offset-2">
+            	
+            	<form class="form-horizontal" method="POST" action="saldo_general.php">
+            		<?php
+            		echo '<center><h4>Mexiapuestas General</h4></center>';
+
+            		 echo '<div class="form-group">
+                           	<label for="agencia" class="col-sm-4 control-label">Agencia Padre:</label>
+                                <div class="col-sm-6">
+                                    <select  name="agencia" id="agencia" class="form-control">';
+                    $sql_agencias="SELECT * FROM agencias WHERE id='10'";
+                    $rs_agencias=mysqli_query($mysqli,$sql_agencias) or die(mysqli_error());
+                    while ($row_agencias=mysqli_fetch_array($rs_agencias)) {
+                        echo  '<option value='.$row_agencias["id"].'>'.$row_agencias["agencia"].'</option>';
+                    }
+                     echo '</select>
+                        </div>
+                                     
+                    </div>';
+                                
+            	?>
+            	
             	<div class="form-group">
                                 <label for="desde1" class="col-sm-4 control-label">Desde:</label>
                                 <div class="col-sm-6">

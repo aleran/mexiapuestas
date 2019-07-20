@@ -90,7 +90,7 @@
                         
                     	<form class="form-horizontal" method="POST" action="https://www.mexiapuestas.net/consultas/con_codigo.php">
                             <?php 
-                                if ($_SESSION["tipo"]=="root") {
+                                if ($_SESSION["tipo"]=="root" || $_SESSION['usuario']=="112244555") {
                                         echo "Introduzca el codigo completo";
                                 }
                                 else {

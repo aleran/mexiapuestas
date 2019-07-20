@@ -112,6 +112,12 @@
 	                			$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='0' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
 
 	                		}
+	                	
+	                	}elseif ($_SESSION['usuario']=="112244555") {
+
+
+                          $sql_act="SELECT * FROM parlay p JOIN agencias a ON a.id=p.agencia WHERE p.activo='1' AND p.ganar='0' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+
 	                	}
 	                	else {
 	                		$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='0' AND agencia='".$_SESSION["agencia"]."'AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";

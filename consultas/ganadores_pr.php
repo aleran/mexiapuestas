@@ -109,6 +109,15 @@
                             $sql_t_pagar="SELECT SUM(premio) AS t_pagar FROM parlay WHERE activo='1' AND ganar='1' AND cedula!='' AND pagado='0' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
                             $rs_t_pagar=mysqli_query($mysqli, $sql_t_pagar) or die(mysqli_error());
                             $row_t_pagar=mysqli_fetch_array($rs_t_pagar);
+                        }elseif ($_SESSION['usuario']=="112244555") {
+
+
+                             $sql_act="SELECT * FROM parlay p JOIN agencias a ON a.id=p.agencia WHERE activo='1' AND p.ganar='1' AND p.cedula!='' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+
+                            $sql_t_pagar="SELECT SUM(premio) AS t_pagar FROM parlay p JOIN agencias a ON a.id=p.agencia WHERE p.activo='1' AND p.ganar='1' AND p.cedula!='' AND pagado='0'  AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+                            $rs_t_pagar=mysqli_query($mysqli, $sql_t_pagar) or die(mysqli_error());
+                            $row_t_pagar=mysqli_fetch_array($rs_t_pagar);
+
                         }
                         else {
                             $sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='1' AND cedula!='' AND agencia='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
