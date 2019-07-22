@@ -87,6 +87,7 @@
 			<?php if ($_SESSION["pais"]!='2') {?>
 			<div class="row">
 				<div class="col-sm-9 col-sm-offset-3">
+
 					<h2 style="color: #FB7210;">NUEVO!! JUEGA TU CHANCE</h2>
 					<?php 
 						if ($_SESSION["pais"]==1) {
@@ -156,7 +157,7 @@
 
 							}
 							
-							$sql_ac="SELECT u.activo_chance FROM usuarios u JOIN agencias a ON u.agencia=a.id WHERE a.agencia_padre='26' AND u.cedula='".$_SESSION["usuario"]."'";
+							$sql_ac="SELECT u.activo_chance FROM usuarios u JOIN agencias a ON u.agencia=a.id WHERE u.cedula='".$_SESSION["usuario"]."'";
 				            $rs_ac=mysqli_query($mysqli,$sql_ac) or die(mysqli_error());
 				            $row_ac=mysqli_fetch_array($rs_ac);
 

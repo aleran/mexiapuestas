@@ -2,6 +2,17 @@
 	include("conexion/conexion.php");
 	include("sesiones/time_sesion.php");
 
+	$sql="SELECT bloqueo_chance FROM usuarios WHERE cedula='".$_SESSION["usuario"]."'";
+	$rs=mysqli_query($mysqli, $sql);
+	$row=mysqli_fetch_array($rs);
+	
+	if ($row["bloqueo_chance"] == 1) {
+		
+		echo "<script>alert('Chance bloqueado');window.location='bienvenido.php';</script>";
+
+	}
+
+
 
 ?>
 <!DOCTYPE html>

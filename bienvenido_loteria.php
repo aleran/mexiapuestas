@@ -86,6 +86,13 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-9 col-sm-offset-3">
+					<?php 
+
+						if ($_SESSION["root"] || $_SESSION["agencia"]==26) {
+							echo '<a  href="bloqueo_general.php?bloquear" class="btn btn-danger">Bloquear usuarios</a> ';
+							echo ' <a  href="bloqueo_general.php?desbloquear" class="btn btn-success">Desbloquear usuarios</a>';
+						}
+					 ?>
 					<h2 style="color: #FB7210;">NUEVO!! JUEGA TU CHANCE</h2>
 					<?php 
 						 
@@ -142,7 +149,7 @@
 
 							}
 							
-							$sql_ac="SELECT u.activo_chance FROM usuarios u JOIN agencias a ON u.agencia=a.id WHERE a.agencia_padre='26' AND u.cedula='".$_SESSION["usuario"]."'";
+							$sql_ac="SELECT u.activo_chance FROM usuarios u JOIN agencias a ON u.agencia=a.id WHERE u.cedula='".$_SESSION["usuario"]."'";
 				            $rs_ac=mysqli_query($mysqli,$sql_ac) or die(mysqli_error());
 				            $row_ac=mysqli_fetch_array($rs_ac);
 

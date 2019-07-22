@@ -68,7 +68,7 @@
 			<br>
 			<div class="row">
 				<?php
-                          if ($_SESSION["tipo"]=="root") {
+                          if ($_SESSION["tipo"]=="root" || $_SESSION['usuario']=="112244555") {
 
                             $sql="SELECT agencia FROM agencias WHERE id='".$_POST["agencia"]."'";
                                 $rs=mysqli_query($mysqli,$sql);
@@ -128,7 +128,7 @@
                     
                       <div class="col-sm-6 col-xs-offset-3">
                     <?php
-                        if ($_SESSION["tipo"]=="root") {
+                        if ($_SESSION["tipo"]=="root" || $_SESSION['usuario']=="112244555") {
                             echo '<h3><center>Resumen económico para la Agencia:&nbsp;'; echo $row ["agencia"]; echo '</center></h3>';
                         }
 
@@ -164,7 +164,7 @@
 
                 <!--consulta de usuarios registrados-->
             <?php
-                        if ($_SESSION["tipo"]=="root") {
+                        if ($_SESSION["tipo"]=="root" || $_SESSION['usuario']=="112244555") {
 
                             $sql1="SELECT agencia FROM agencias WHERE id='".$_POST["agencia"]."'";
                                 $rs1=mysqli_query($mysqli,$sql1);

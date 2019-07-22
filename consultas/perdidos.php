@@ -103,24 +103,33 @@
                        
 	                	if ($_SESSION["tipo"]=="root") {
 
-	                		if ($_SESSION['usuario']=="123456") {
-
-	                			$sql_act="SELECT p.* FROM parlay p JOIN agencias a ON p.agencia=a.id WHERE activo='1' AND ganar='0' AND a.pais !=2 AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
-
-	                		}else{
 
 	                			$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='0' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
 
-	                		}
+	                			$sql_t_apostado="SELECT SUM(monto) AS t_apostado FROM parlay WHERE activo='1' AND ganar='0' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+
+	                			$rs_t_apostado=mysqli_query($mysqli, $sql_t_apostado) or die(mysqli_error());
+                            	$row_t_apostado=mysqli_fetch_array($rs_t_apostado);
+
+
 	                	
 	                	}elseif ($_SESSION['usuario']=="112244555") {
 
 
                           $sql_act="SELECT * FROM parlay p JOIN agencias a ON a.id=p.agencia WHERE p.activo='1' AND p.ganar='0' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
 
+                          $sql_t_apostado="SELECT SUM(monto) AS t_apostado FROM parlay p JOIN agencias a ON a.id=p.agencia WHERE p.activo='1' AND p.ganar='0' AND a.agencia_padre ='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+
+                          $rs_t_apostado=mysqli_query($mysqli, $sql_t_apostado) or die(mysqli_error());
+                            	$row_t_apostado=mysqli_fetch_array($rs_t_apostado);
+
 	                	}
 	                	else {
 	                		$sql_act="SELECT * FROM parlay WHERE activo='1' AND ganar='0' AND agencia='".$_SESSION["agencia"]."'AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+
+	                		$sql_t_apostado="SELECT SUM(monto) AS t_apostado FROM parlay WHERE activo='1' AND ganar='0s' AND agencia='".$_SESSION["agencia"]."' AND (fecha BETWEEN '".$desde."' AND '".$hasta."')";
+                            $rs_t_apostado=mysqli_query($mysqli, $sql_t_apostado) or die(mysqli_error());
+                            $row_t_apostado=mysqli_fetch_array($rs_t_apostado);
 	                	}
 	                    
 	                    $rs_act=mysqli_query($mysqli, $sql_act) or die(mysqli_error());
@@ -154,6 +163,8 @@
 	                    		echo"</tr>";
 
 	                    }
+
+	                    echo "<tr><td></td><td></td><td></td><td><b><u>TOTAL:  </u></font></b></td><td>$&nbsp,<b>".$row_t_apostado["t_apostado"]."</td></b></tr>";
 
 	                ?>
                     		

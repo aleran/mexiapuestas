@@ -73,20 +73,20 @@
                 	
 	                	 <form class="form-horizontal" method="POST" action="saldo_agencia.php">
                             <?php
-                                if ($_SESSION["tipo"]=="root") {
+                                if ($_SESSION["tipo"]=="root" || $_SESSION['usuario']=="112244555") {
                                     echo '<div class="form-group">
                                     <label for="agencia" class="col-sm-4 control-label">Agencia:</label>
                                     <div class="col-sm-6">
                                         <select  name="agencia" id="agencia" class="form-control">';
-                                        if ($_SESSION['usuario']=="123456") {
+                                        if ($_SESSION['tipo']=="root") {
                                         	
-                                        	$sql_agencias="SELECT * FROM agencias WHERE pais !=2";
+                                        	$sql_agencias="SELECT * FROM agencias";
 
                                         	
 
                                         }else {
 
-                                        	$sql_agencias="SELECT * FROM agencias";
+                                        	$sql_agencias="SELECT * FROM agencias WHERE agencia_padre='".$_SESSION["agencia"]."'";
 
                                         }
                                             $rs_agencias=mysqli_query($mysqli,$sql_agencias) or die(mysqli_error());
