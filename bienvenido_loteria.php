@@ -153,7 +153,7 @@
 				            $rs_ac=mysqli_query($mysqli,$sql_ac) or die(mysqli_error());
 				            $row_ac=mysqli_fetch_array($rs_ac);
 
-				            if ($_SESSION["tipo"]=="admin") {
+				            if ($_SESSION["tipo"]=="admin" || $_SESSION["tipo"]=="chance") {
 				            	
 				            	if ($row_ac["activo_chance"]==1) {
 				            		

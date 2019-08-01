@@ -196,17 +196,17 @@
             	?>
             	
             	<div class="form-group">
-                                <label for="desde1" class="col-sm-4 control-label">Desde:</label>
+                                <label for="desde2" class="col-sm-4 control-label">Desde:</label>
                                 <div class="col-sm-6">
-                                    <input type="text"  name="desde" id="desde1" class="form-control" autocomplete="off">
+                                    <input type="text"  name="desde" id="desde2" class="form-control" autocomplete="off">
                                     	
                                 </div>
                                  
                             </div>
                             <div class="form-group">
-                                <label for="hasta1" class="col-sm-4 control-label">Hasta:</label>
+                                <label for="hasta2" class="col-sm-4 control-label">Hasta:</label>
                                 <div class="col-sm-6">
-                                    <input type="text"  name="hasta" id="hasta1" class="form-control" autocomplete="off" required>
+                                    <input type="text"  name="hasta" id="hasta2" class="form-control" autocomplete="off" required>
                                     	
                                 </div>
                                  <button class="btn btn-primary" required>Consultar</button>
@@ -292,6 +292,27 @@
 
 	
 		});
+
+        $("#desde2").datepicker({
+            changeMonth: true, // Mostrar el mes
+            changeYear: true, // Poder cambiar el año
+            showOtherMonths: true, //Mostrar cuadrilcula
+            showButtonPanel: true, // Mostrar botones
+            dateFormat: 'yy-mm-dd',
+            
+
+    
+        });
+        $("#hasta2").datepicker({
+            changeMonth: true, // Mostrar el mes
+            changeYear: true, // Poder cambiar el año
+            showOtherMonths: true, //Mostrar cuadrilcula
+            showButtonPanel: true, // Mostrar botones
+            dateFormat: 'yy-mm-dd',
+            
+
+    
+        });
 	</script>
 
 </body>
